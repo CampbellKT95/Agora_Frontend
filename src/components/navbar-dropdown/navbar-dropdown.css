@@ -1,0 +1,16 @@
+.dropdown {
+  grid-column: 4;
+  margin: 5% auto auto 45%;
+}
+
+.dropdown-bars {
+  font-size: 2.4rem;
+}
+
+.dropdown-menu-container {
+  position: absolute;
+}
+
+.dropdown-menu-hide {
+  display: none;
+}

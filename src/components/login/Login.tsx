@@ -53,13 +53,7 @@ function Login() {
   }
 
   // will need to check if password & password 2 are the same
-  const handleCreateSubmit = (e: any) => {
-    e.preventDefault();
-
-    axios.post("http://localhost:5000/api/auth/register", createAccount)
-    .then((response) => {
-      console.log(response);
-    })
+  const handleCreateSubmit = () => {
   }
   
   return (
