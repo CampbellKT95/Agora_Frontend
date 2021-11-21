@@ -21,7 +21,8 @@
 
 .dropdown-menu-container {
   position: absolute;
-  margin: 10% auto auto 65%;
+  margin: 12% auto auto 65%;
+  background-color: white;
 }
 
 .dropdown-menu-hide {
@@ -31,7 +32,7 @@
 @media screen and (min-width: 600px) and (max-width: 799px) {
   .dropdown-menu-container {
     position: absolute;
-    margin: 6% auto auto 74%;
+    margin: 10% auto auto 74%;
   }
 }
 
