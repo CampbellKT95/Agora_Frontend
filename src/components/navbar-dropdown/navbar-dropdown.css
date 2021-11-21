@@ -30,6 +30,10 @@
 }
 
 @media screen and (min-width: 600px) and (max-width: 799px) {
+  .dropdown-bars {
+    margin-top: 17%;
+  }
+
   .dropdown-menu-container {
     position: absolute;
     margin: 10% auto auto 74%;

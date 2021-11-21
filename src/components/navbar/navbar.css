@@ -47,13 +47,29 @@
 
 @media screen and (min-width: 600px) and (max-width: 800px) {
   .search-bar {
-    margin-top: 3%;
+    margin-top: 5%;
+  }
+
+  .logo-icon {
+    margin: 9px 5px auto auto;
+  }
+
+  .logo-text {
+    display: inline-block;
   }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1199px) {
   .navbar {
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  .logo-icon {
+    margin: 9px 5px auto auto;
+  }
+
+  .logo-text {
+    display: inline-block;
   }
 
   .search-bar {

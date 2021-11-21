@@ -1,12 +1,22 @@
 import "./header.css";
-
+import {useState} from "react";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+
+//
+import {fakeList} from "./fakeList";
+//
+
 const Header = () => {
+
+    //for showing friends list modal @ < 800px
+    const [toggleMobileFriends, setToggleMobileFriends] = useState(false);
 
     return(
         <section className="header-section">
@@ -23,27 +33,47 @@ const Header = () => {
                 </div>
             </div>
 
+            <button className={`${toggleMobileFriends ? "small-friends-arrow-clicked" : "small-friends-arrow"}`}
+            onClick={() => setToggleMobileFriends(!toggleMobileFriends)}>
+                <KeyboardArrowRightIcon sx={{fontSize: 40}}/>
+            </button>
+
             <aside className="sidebar">
-                    <h1>Friends</h1>
-                    <List>
+                <h1 className="friends-title">Friends</h1>
+                <List>
+                    {fakeList.map((friend) => {
+                        return (
+                    <>
                         <ListItem disablePadding>
                             <ListItemButton>
-                            <ListItemText primary="Cassidy" />
+                            <ListItemText primary={friend} />
                             </ListItemButton>
                         </ListItem>
                         <Divider />
+                    </>
+                        )
+                    })}
+                    <h4 className="more-friends">...</h4>
+                </List>
+            </aside>
+
+            {/* mobile-sidebar */}
+            <aside className={`${toggleMobileFriends ? "mobile-sidebar-shown" : "mobile-sidebar-hidden"}`}>
+                <List>
+                    {fakeList.map((friend) => {
+                        return (
+                    <>
                         <ListItem disablePadding>
                             <ListItemButton>
-                            <ListItemText primary="John" />
+                            <ListItemText primary={friend} />
                             </ListItemButton>
                         </ListItem>
                         <Divider />
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                            <ListItemText primary="Hanh" />
-                            </ListItemButton>
-                        </ListItem>
-                    </List>
+                    </>
+                        )
+                    })}
+                    <h4 className="more-friends">...</h4>
+                </List>
             </aside>
 
         </section>
