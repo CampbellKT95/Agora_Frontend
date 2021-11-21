@@ -19,7 +19,8 @@ const NavbarDropdown = () => {
         <>
             <div className="dropdown" 
             onClick={() => setDisplayMenu(!displayMenu)}>
-                <FaBars className="dropdown-bars" />
+                <FaBars 
+                className={`${displayMenu ? "dropdown-bars-active" : "dropdown-bars"}`} />
             </div>
 
             <div className={`${displayMenu ? "dropdown-menu-container" : "dropdown-menu-hide"}`}>

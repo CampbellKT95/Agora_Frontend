@@ -1,16 +1,64 @@
 .dropdown {
   grid-column: 4;
   margin: 5% auto auto 45%;
+  position: relative;
 }
 
 .dropdown-bars {
+  transition: all 0.2s linear;
+  font-size: 2.4rem;
+}
+
+.dropdown-bars:hover {
+  color: rgba(0, 0, 0, 0.486);
+}
+
+.dropdown-bars-active {
+  transition: all 0.2s linear;
+  transform: rotate(90deg);
   font-size: 2.4rem;
 }
 
 .dropdown-menu-container {
   position: absolute;
+  margin: 10% auto auto 65%;
 }
 
 .dropdown-menu-hide {
   display: none;
+}
+
+@media screen and (min-width: 600px) and (max-width: 799px) {
+  .dropdown-menu-container {
+    position: absolute;
+    margin: 6% auto auto 74%;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1199px) {
+  .dropdown-bars {
+    display: none;
+  }
+
+  .dropdown-bars-active {
+    display: none;
+  }
+
+  .dropdown-menu-container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .dropdown-bars {
+    display: none;
+  }
+
+  .dropdown-bars-active {
+    display: none;
+  }
+
+  .dropdown-menu-container {
+    display: none;
+  }
 }

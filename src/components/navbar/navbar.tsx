@@ -2,7 +2,6 @@ import "./navbar.css";
 import {useState} from "react";
 import NavbarDropdown from "../navbar-dropdown/navbar-dropdown";
 import SchoolIcon from '@mui/icons-material/School';
-import {FaBars} from "react-icons/fa";
 import PersonIcon from '@mui/icons-material/Person';
 import MessageIcon from '@mui/icons-material/Message';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -14,7 +13,8 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="logo">
-                <SchoolIcon sx={{fontSize: 50}}/>
+                <SchoolIcon sx={{fontSize: 50}} className="logo-icon" />
+                <h1 className="logo-text">Agora</h1>
             </div>
 
             <div className="search">
@@ -24,19 +24,10 @@ const Navbar = () => {
 
             <NavbarDropdown />
 
-            {/* <div className="dropdown">
-                <FaBars className="dropdown-bars" />
-            </div>
-            <div className="dropdown-menu-container">
-                <ul className="dropdown-menu">
-
-                </ul>
-            </div> */}
-
             <div className="navbar-icon-container">
-                <PersonIcon />
-                <MessageIcon />
-                <AccountCircleIcon />
+                <PersonIcon fontSize="large" className="navbar-icons" />
+                <MessageIcon fontSize="large" className="navbar-icons"/>
+                <AccountCircleIcon fontSize="large" className="navbar-icons"/>
             </div>
 
         </nav>
