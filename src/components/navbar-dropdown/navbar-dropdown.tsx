@@ -27,8 +27,9 @@ const NavbarDropdown = () => {
                 <List>
                     <ListItem disablePadding>
                         <ListItemButton>
-                        <ListItemIcon>
-                            <PersonIcon />
+                        <ListItemIcon className="dropdown-icons-position">
+                            <PersonIcon/>
+                            <span className="dropdown-friend-requests">1</span>
                         </ListItemIcon>
                         <ListItemText primary="Friends" />
                         </ListItemButton>
@@ -36,8 +37,9 @@ const NavbarDropdown = () => {
                     <Divider />
                     <ListItem disablePadding>
                         <ListItemButton>
-                        <ListItemIcon>
-                            <MessageIcon />
+                        <ListItemIcon className="dropdown-icons-position">
+                            <MessageIcon/>
+                            <span className="dropdown-messages">2</span>
                         </ListItemIcon>
                         <ListItemText primary="Messages" />
                         </ListItemButton>

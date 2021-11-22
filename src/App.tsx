@@ -2,16 +2,25 @@ import './App.css';
 import Login from "./components/login/Login";
 import Navbar from "./components/navbar/navbar";
 import Header from "./components/header/header";
+import Sidebar from "./components/sidebar/sidebar";
+import Tutorials from "./components/tutorials/tutorials";
 import Post from "./components/post/post";
+import Timeline from "./components/timeline/timeline";
+
 
 function App() {
   return (
-    <div className="App-container">
+    <>
       {/* <Login /> */}
       <Navbar />
-      <Header />
-      <Post />
-    </div>
+      <main className="main-container">
+        <Header />
+        <Sidebar />
+        <Tutorials />
+        <Post />
+        <Timeline />
+      </main>
+    </>
   );
 }
 

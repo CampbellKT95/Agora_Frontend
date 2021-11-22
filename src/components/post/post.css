@@ -1,4 +1,43 @@
-.make-post {
+.create-post {
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: 1fr 1fr 0.5fr;
+  width: 80%;
+  margin: 2rem auto auto auto;
+}
+
+.post-title {
   border: none;
   border-bottom: 1px solid black;
+  font-size: 1.5rem;
+  margin: auto auto auto auto;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.post-title:focus {
+  outline: none;
+}
+
+.post-content {
+  font-size: 1.5rem;
+  margin: auto auto 1rem auto;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.post-content:focus {
+  outline: none;
+}
+
+.post-btn {
+  width: 5rem;
+  height: 3rem;
+  margin: auto auto 1rem auto;
+  background-color: #0076bd;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
 }

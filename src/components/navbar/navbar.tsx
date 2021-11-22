@@ -26,7 +26,9 @@ const Navbar = () => {
 
             <div className="navbar-icon-container">
                 <PersonIcon fontSize="large" className="navbar-icons" />
+                <span className="friend-requests">1</span>
                 <MessageIcon fontSize="large" className="navbar-icons"/>
+                <span className="messages">2</span>
                 <AccountCircleIcon fontSize="large" className="navbar-icons"/>
             </div>
 

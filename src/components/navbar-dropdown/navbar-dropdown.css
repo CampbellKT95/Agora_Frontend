@@ -29,6 +29,20 @@
   display: none;
 }
 
+.dropdown-icons-position {
+  position: relative;
+}
+
+.dropdown-friend-requests {
+  position: absolute;
+  margin: auto auto auto 25px;
+}
+
+.dropdown-messages {
+  position: absolute;
+  margin: auto auto auto 25px;
+}
+
 @media screen and (min-width: 600px) and (max-width: 799px) {
   .dropdown-bars {
     margin-top: 17%;

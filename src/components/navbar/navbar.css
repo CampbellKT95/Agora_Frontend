@@ -4,6 +4,9 @@
   grid-template-rows: 1fr;
   background-color: #0076bd;
   padding-bottom: 10px;
+
+  position: sticky;
+  top: 0;
 }
 
 .logo {
@@ -31,6 +34,10 @@
   border: none;
 }
 
+.search-bar:focus {
+  outline: none;
+}
+
 .navbar-icon-container {
   display: none;
 }
@@ -38,11 +45,18 @@
 .navbar-icons {
   transition: all 0.1s linear;
   cursor: pointer;
+  position: relative;
 }
 
 .navbar-icons:hover {
   transition: all 0.1s linear;
   color: rgba(0, 0, 0, 0.3);
+}
+
+.friend-requests {
+}
+
+.messages {
 }
 
 @media screen and (min-width: 600px) and (max-width: 800px) {
@@ -92,6 +106,26 @@
   .navbar-icons:hover {
     color: rgba(0, 0, 0, 0.3);
   }
+
+  .friend-requests {
+    background-color: white;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    position: absolute;
+    margin: -5px auto auto -25px;
+    text-align: center;
+  }
+
+  .messages {
+    background-color: white;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    position: absolute;
+    margin: -5px auto auto -15px;
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -116,10 +150,31 @@
     display: inline-block;
     grid-column: -1;
     margin: 7% auto auto auto;
+    position: relative;
   }
 
   .navbar-icons {
     padding: 0 15px;
     margin: 0 auto 5% auto;
+  }
+
+  .friend-requests {
+    background-color: white;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    position: absolute;
+    margin: -5px auto auto -25px;
+    text-align: center;
+  }
+
+  .messages {
+    background-color: white;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    position: absolute;
+    margin: -5px auto auto -15px;
+    text-align: center;
   }
 }
