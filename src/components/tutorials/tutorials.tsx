@@ -1,11 +1,13 @@
 import "./tutorials.css";
 import SingleTutorial from "../singleTutorial/singleTutorial";
+
 import {fakeList} from "./fakeList";
 
 const Tutorials = () => {
 
     return (
         <div className="tutorials">
+
             <h1 className="tutorials-title">Tutorials</h1>
 
             <section className="tutorials-container">

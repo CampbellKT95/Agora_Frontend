@@ -2,3 +2,20 @@
   grid-column: 2;
   margin: auto;
 }
+
+.load-more-timeline {
+  background-color: #0076bd;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 2.5rem;
+  width: 4.5rem;
+  font-size: 1.25rem;
+  margin-left: 45%;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.load-more-timeline:hover {
+  opacity: 0.8;
+}
