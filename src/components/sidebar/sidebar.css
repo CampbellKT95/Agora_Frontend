@@ -21,7 +21,7 @@
   text-align: center;
   display: inline-block;
   border-radius: 5px;
-  margin: -28rem auto auto auto;
+  margin: -3rem auto auto auto;
   width: 7rem;
   position: absolute;
   background-color: white;
@@ -30,7 +30,7 @@
 .small-friends-arrow {
   transition: all linear 0.2s;
   position: absolute;
-  margin: -28rem auto auto auto;
+  margin: -5rem auto auto auto;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -40,7 +40,7 @@
   transition: all linear 0.2s;
   position: absolute;
   transform: rotate(180deg);
-  margin: -28rem auto auto 23%;
+  margin: -5rem auto auto auto;
   border: none;
   background-color: transparent;
   cursor: pointer;

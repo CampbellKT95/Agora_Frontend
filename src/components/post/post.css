@@ -3,7 +3,7 @@
   display: grid;
   grid-template-rows: 1fr 1fr 0.5fr;
   width: 80%;
-  margin: 2rem auto auto auto;
+  margin: 3rem auto auto auto;
 }
 
 .post-title {
@@ -40,4 +40,24 @@
   color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1199px) {
+  .create-post {
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: 1fr 1fr 0.5fr;
+    width: 70%;
+    margin: 3rem auto auto auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .create-post {
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: 1fr 1fr 0.5fr;
+    width: 60%;
+    margin: 3rem auto auto auto;
+  }
 }

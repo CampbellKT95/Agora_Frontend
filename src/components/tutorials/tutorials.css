@@ -1,0 +1,22 @@
+/* make tutorials a modal toggled via arrow? */
+
+@media screen and (min-width: 800px) {
+  .tutorials {
+    grid-column: 3;
+    grid-row: 1 / -1;
+    border-left: 1px solid black;
+  }
+
+  .tutorials-title {
+    margin: 5% auto 3% auto;
+    border-bottom: 1px solid black;
+    padding-bottom: 5%;
+    width: 40%;
+    font-size: 1.5rem;
+  }
+
+  .more-tutorials {
+    text-align: center;
+    cursor: pointer;
+  }
+}

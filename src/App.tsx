@@ -16,9 +16,9 @@ function App() {
       <main className="main-container">
         <Header />
         <Sidebar />
-        <Tutorials />
         <Post />
         <Timeline />
+        <Tutorials />
       </main>
     </>
   );

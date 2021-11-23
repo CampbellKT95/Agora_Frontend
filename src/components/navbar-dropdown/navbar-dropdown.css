@@ -7,6 +7,7 @@
 .dropdown-bars {
   transition: all 0.2s linear;
   font-size: 2.4rem;
+  cursor: pointer;
 }
 
 .dropdown-bars:hover {
@@ -17,11 +18,12 @@
   transition: all 0.2s linear;
   transform: rotate(90deg);
   font-size: 2.4rem;
+  cursor: pointer;
 }
 
 .dropdown-menu-container {
   position: absolute;
-  margin: 12% auto auto 65%;
+  margin: 27% auto auto -6rem;
   background-color: white;
 }
 
@@ -50,7 +52,7 @@
 
   .dropdown-menu-container {
     position: absolute;
-    margin: 10% auto auto 74%;
+    margin: 1.75rem auto auto -5rem;
   }
 }
 

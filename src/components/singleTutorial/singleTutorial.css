@@ -1,0 +1,25 @@
+.single-tutorial {
+  margin: 0.75rem auto 0.75rem auto;
+  max-width: 80%;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 0px black;
+  background-color: #0076bd;
+  color: white;
+}
+
+.single-tutorial:hover {
+  background-color: #0076bd;
+  opacity: 0.8;
+}
+
+.tutorial-title {
+  margin: 0.5rem auto auto auto;
+  padding-top: 0.5rem;
+}
+
+.tutorial-description {
+  margin: 0.5 auto auto auto;
+  padding: 0 0 1rem 0;
+}

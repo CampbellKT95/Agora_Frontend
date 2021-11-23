@@ -21,9 +21,8 @@ const NavbarDropdown = () => {
             onClick={() => setDisplayMenu(!displayMenu)}>
                 <FaBars 
                 className={`${displayMenu ? "dropdown-bars-active" : "dropdown-bars"}`} />
-            </div>
 
-            <div className={`${displayMenu ? "dropdown-menu-container" : "dropdown-menu-hide"}`}>
+                <div className={`${displayMenu ? "dropdown-menu-container" : "dropdown-menu-hide"}`}>
                 <List>
                     <ListItem disablePadding>
                         <ListItemButton>
@@ -55,6 +54,41 @@ const NavbarDropdown = () => {
                     </ListItem>
                 </List>
             </div>
+
+            </div>
+
+            {/* <div className={`${displayMenu ? "dropdown-menu-container" : "dropdown-menu-hide"}`}>
+                <List>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                        <ListItemIcon className="dropdown-icons-position">
+                            <PersonIcon/>
+                            <span className="dropdown-friend-requests">1</span>
+                        </ListItemIcon>
+                        <ListItemText primary="Friends" />
+                        </ListItemButton>
+                    </ListItem>
+                    <Divider />
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                        <ListItemIcon className="dropdown-icons-position">
+                            <MessageIcon/>
+                            <span className="dropdown-messages">2</span>
+                        </ListItemIcon>
+                        <ListItemText primary="Messages" />
+                        </ListItemButton>
+                    </ListItem>
+                    <Divider />
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                        <ListItemIcon>
+                            <SettingsIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Account" />
+                        </ListItemButton>
+                    </ListItem>
+                </List>
+            </div> */}
 
         </>
     )
