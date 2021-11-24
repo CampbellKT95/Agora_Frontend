@@ -1,4 +1,6 @@
 import './App.css';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
 import Login from "./components/login/Login";
 import Navbar from "./components/navbar/navbar";
 import Header from "./components/header/header";
@@ -10,17 +12,27 @@ import Timeline from "./components/timeline/timeline";
 
 function App() {
   return (
-    <>
-      {/* <Login /> */}
-      <Navbar />
-      <main className="main-container">
-        <Header />
-        <Sidebar />
-        <Post />
-        <Timeline />
-        <Tutorials />
-      </main>
-    </>
+    <Router>
+      <Routes>
+
+        <Route path="/" element={<Login />} />
+
+        {/* <Route path="/profile/:username"> */}
+
+        <Route path="/profile" element={<>
+          <Navbar />
+          <main className="main-container">
+            <Header />
+            <Sidebar />
+            <Post />
+            <Timeline />
+            <Tutorials />
+          </main>
+        </>}>
+        </Route>
+        
+      </Routes>
+    </Router>
   );
 }
 
