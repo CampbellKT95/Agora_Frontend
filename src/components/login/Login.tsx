@@ -3,7 +3,12 @@ import axios from "axios";
 import { useState } from "react";
 import Backdrop from '@mui/material/Backdrop';
 
+import { useNavigate } from "react-router-dom";
+
 function Login() {
+
+  const navigate = useNavigate();
+
   interface loginInterface {
     email: string;
     password: string;
@@ -52,8 +57,22 @@ function Login() {
     }
   }
 
-  // will need to check if password & password 2 are the same
-  const handleCreateSubmit = () => {
+  const handleCreateSubmit = async (e: any) => {
+    e.preventDefault();
+    try {
+
+      if (createAccount.createPassword === createAccount.createPassword2) {
+        await axios.post("http://localhost:5000/api/auth/register", createAccount);
+        console.log("user created");
+        navigate("/profile");
+        
+      } else {
+        console.log("Passwords do not match");
+      }
+
+    } catch (err) {
+      console.log(err)
+    }
   }
   
   return (
@@ -131,9 +150,11 @@ function Login() {
                 value={createAccount.createPassword2}
                 onChange={handleCreateChange}
               />
+            
               <button className="create-btn" type="submit">
                 Create
               </button>
+              
               <button className="back-btn" onClick={toggleModal}>Back</button>
             </form>
           </section>
