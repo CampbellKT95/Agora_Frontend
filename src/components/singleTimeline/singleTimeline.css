@@ -31,6 +31,7 @@
 .likes-icon {
   color: #0076bd;
   margin-top: 1rem;
+  cursor: pointer;
 }
 
 .number-of-likes {
@@ -41,6 +42,7 @@
 .comments-container {
   grid-column: 2;
   display: flex;
+  cursor: pointer;
 }
 
 .comments-icon {
@@ -59,7 +61,7 @@
   border: none;
   background: transparent;
   color: #0076bd;
-  margin-left: 80%;
+  margin-left: 60%;
   cursor: pointer;
 }
 
@@ -73,7 +75,19 @@
   border: none;
   background: transparent;
   color: #0076bd;
-  margin-left: 80%;
+  margin-left: 60%;
   cursor: pointer;
   transform: rotate(180deg);
+}
+
+@media screen and (min-width: 800px) {
+  .comments-container {
+    margin-left: -1rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .comments-container {
+    margin-left: -2.5rem;
+  }
 }

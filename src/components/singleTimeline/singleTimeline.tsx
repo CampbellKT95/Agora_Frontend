@@ -17,7 +17,7 @@ const SingleTimeline = (props: any) => {
             </div>
             <div className="timeline-content-container">
                 <p className="timeline-content">
-                    {`${displayContent ? props.content : props.content.substring(0, 100) + "..."}`}
+                    {`${displayContent ? props.description : props.description.substring(0, 100) + "..."}`}
                 </p>
             </div>
             <div className="post-footer-container">
@@ -27,7 +27,7 @@ const SingleTimeline = (props: any) => {
                 </div>
                 <div className="comments-container">
                     <ForumIcon className="comments-icon"/>
-                    <p className="number-of-comments">{props.comments}</p>
+                    <p className="number-of-comments">{props.comments.length}</p>
                 </div>
                 <button className={`${displayContent ? "display-more-btn-clicked" : "display-more-btn"}`}
                 onClick={() => setDisplayContent(!displayContent)}>

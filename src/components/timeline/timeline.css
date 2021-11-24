@@ -1,6 +1,7 @@
 .timeline {
   grid-column: 2;
   margin: auto;
+  width: 70%;
 }
 
 .load-more-timeline {
