@@ -1,9 +1,11 @@
 import "./login.css";
-import axios from "axios";
-import { useState } from "react";
 import Backdrop from '@mui/material/Backdrop';
-
+import {CircularProgress} from "@material-ui/core";
+import axios from "axios";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import {loginCall} from "../../api/apiCalls";
+import {AuthContext} from "../../context/AuthContext";
 
 function Login() {
 
@@ -29,7 +31,13 @@ function Login() {
     }
   };
 
-  const handleLoginSubmit = () => {}
+  const {user, isFetching, error, dispatch} = useContext(AuthContext);
+
+  const handleLoginSubmit = (e:any) => {
+    e.preventDefault();
+    loginCall(login, dispatch);
+    navigate("/profile");
+  }
 
   const [modal, setModal] = useState(false);
 
@@ -102,7 +110,7 @@ function Login() {
             required
             onChange={handleChange}
           />
-          <button className="login-btn" type="submit">Login</button>
+          <button className="login-btn" type="submit">{isFetching ? <CircularProgress color="secondary" size="25px" /> : "Login"}</button>
           <button className="google-btn">
             <span className="g">G</span>
             <span className="o-red">o</span>

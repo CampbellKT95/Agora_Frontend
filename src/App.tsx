@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-
+import {useContext} from "react";
+import {AuthContext} from "./context/AuthContext";
 import Login from "./components/login/Login";
 import Navbar from "./components/navbar/navbar";
 import Header from "./components/header/header";
@@ -11,6 +12,9 @@ import Timeline from "./components/timeline/timeline";
 
 
 function App() {
+
+  const {user} = useContext(AuthContext);
+
   return (
     <Router>
       <Routes>
@@ -19,7 +23,9 @@ function App() {
 
         {/* <Route path="/profile/:username"> */}
 
-        <Route path="/profile" element={<>
+        <Route path="/profile" element={
+        user ? 
+          <>
           <Navbar />
           <main className="main-container">
             <Header />
@@ -28,9 +34,9 @@ function App() {
             <Timeline />
             <Tutorials />
           </main>
-        </>}>
-        </Route>
-        
+        </> 
+        : <Login />
+      } />
       </Routes>
     </Router>
   );
