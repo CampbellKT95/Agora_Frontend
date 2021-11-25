@@ -90,6 +90,7 @@ function Login() {
             className="email-input"
             name="email"
             id="email"
+            required
             onChange={handleChange}
           />
           <input
@@ -98,6 +99,7 @@ function Login() {
             className="password-input"
             name="password"
             id="password"
+            required
             onChange={handleChange}
           />
           <button className="login-btn" type="submit">Login</button>
