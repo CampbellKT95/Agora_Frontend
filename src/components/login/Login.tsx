@@ -33,10 +33,17 @@ function Login() {
 
   const {user, isFetching, error, dispatch} = useContext(AuthContext);
 
-  const handleLoginSubmit = (e:any) => {
+  const [loginError, setLoginError] = useState(false)
+
+  const handleLoginSubmit = async (e:any) => {
     e.preventDefault();
-    loginCall(login, dispatch);
-    navigate("/profile");
+    await loginCall(login, dispatch);
+
+    if (error) {
+      setLoginError(true);
+    } else {
+      navigate("/profile")
+    }
   }
 
   const [modal, setModal] = useState(false);
@@ -65,6 +72,8 @@ function Login() {
     }
   }
 
+  const [createError, setCreateError] = useState(false)
+
   const handleCreateSubmit = async (e: any) => {
     e.preventDefault();
     try {
@@ -76,6 +85,7 @@ function Login() {
         
       } else {
         console.log("Passwords do not match");
+        setCreateError(true);
       }
 
     } catch (err) {
@@ -110,6 +120,11 @@ function Login() {
             required
             onChange={handleChange}
           />
+
+          <p className={`${loginError ? "login-error" : "no-login-error"}`}>
+            Incorrect Credentials
+          </p>
+
           <button className="login-btn" type="submit">{isFetching ? <CircularProgress color="secondary" size="25px" /> : "Login"}</button>
           <button className="google-btn">
             <span className="g">G</span>
@@ -161,6 +176,10 @@ function Login() {
                 onChange={handleCreateChange}
               />
             
+              <p className={`${createError ? "create-error" : "no-create-error"}`}>
+                Passwords do not match
+              </p>
+
               <button className="create-btn" type="submit">
                 Create
               </button>

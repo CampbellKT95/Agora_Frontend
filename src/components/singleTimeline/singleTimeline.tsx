@@ -45,7 +45,7 @@ const SingleTimeline = (props: any) => {
         }
     };
 
-    useEffect(() => {}, [numberComments])
+    useEffect(() => {}, [numberComments, likes])
 
     return (
         <div className="timeline-post">
@@ -56,7 +56,7 @@ const SingleTimeline = (props: any) => {
             </div>
             <div className="timeline-content-container">
                 <p className="timeline-content">
-                    {`${displayContent ? props.description : props.description.substring(0, 100) + "..."}`}
+                    {`${displayContent ? props.content : props.content.substring(0, 100) + "..."}`}
                 </p>
             </div>
             <div className="post-footer-container">

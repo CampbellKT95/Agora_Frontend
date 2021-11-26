@@ -22,7 +22,7 @@ const Timeline = () => {
     return (
         <section className="timeline">
             {posts.map((item: any) => {
-                return <SingleTimeline title={item.title} description={item.description}
+                return <SingleTimeline title={item.title} content={item.content}
                 comments={item.comments} likes={item.likes} id={item._id} userId={item.userId}
                 />
             })}
