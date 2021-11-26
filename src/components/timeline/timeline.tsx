@@ -23,7 +23,7 @@ const Timeline = () => {
         <section className="timeline">
             {posts.map((item: any) => {
                 return <SingleTimeline title={item.title} description={item.description}
-                comments={item.comments} likes={item.likes} id={item._id}
+                comments={item.comments} likes={item.likes} id={item._id} userId={item.userId}
                 />
             })}
             <button className="load-more-timeline">More</button>

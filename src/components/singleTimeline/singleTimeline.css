@@ -34,6 +34,10 @@
   cursor: pointer;
 }
 
+.likes-icon:hover {
+  opacity: 0.7;
+}
+
 .number-of-likes {
   margin-top: 1.2rem;
   margin-left: 5px;
@@ -48,6 +52,10 @@
 .comments-icon {
   color: #0076bd;
   margin-top: 1rem;
+}
+
+.comments-icon:hover {
+  opacity: 0.7;
 }
 
 .number-of-comments {
@@ -81,26 +89,101 @@
 }
 
 .comments-modal-container {
+  position: relative;
   background-color: white;
   display: flex;
   flex-direction: column;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.close-modal {
+  color: black;
+  cursor: pointer;
 }
 
 .comments-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.comments-form button {
+  width: 3.5rem;
+  height: 2.5rem;
+  font-size: 1.15rem;
+  margin: auto;
+  background-color: #0076bd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-box {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 0.5rem;
+  height: 100%;
+  font-size: 1.25rem;
+}
+
+.comment-box:focus {
+  outline: none;
 }
 
 .comments-section {
   color: black;
+  margin-left: 0.5rem;
+  max-width: 90%;
+  border-bottom: 1px solid black;
+}
+
+.single-comment-username {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+
+.single-comment {
+  color: black;
+}
+
+.close-modal {
+  margin-left: 82%;
 }
 
 @media screen and (min-width: 800px) {
+  .comments-modal-container {
+    width: 60%;
+  }
+
   .comments-container {
     margin-left: -1rem;
+  }
+
+  .close-modal {
+    margin-left: 90%;
   }
 }
 
 @media screen and (min-width: 1000px) {
   .comments-container {
     margin-left: -2.5rem;
+  }
+
+  .close-modal {
+    margin-left: 90%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .comments-modal-container {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .close-modal {
+    margin-left: 95%;
   }
 }
