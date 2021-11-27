@@ -7,7 +7,6 @@ import axios from "axios";
 const Post = () => {
 
     const {user} = useContext(AuthContext)
-    console.log(user)
 
     const [newPost, setNewPost] = useState({
         title: "",

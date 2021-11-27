@@ -22,4 +22,9 @@ body {
     grid-template-columns: 0.25fr 1fr 0.25fr;
     grid-template-rows: repeat(2, 1fr);
   }
+
+  .personal-container {
+    display: grid;
+    grid-template-columns: 0.25fr 1fr 0.25fr;
+  }
 }

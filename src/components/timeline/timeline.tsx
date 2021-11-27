@@ -17,7 +17,7 @@ const Timeline = () => {
             setPosts(res.data);
         };
         fetchPosts();
-    }, [user._id])
+    }, [user._id, posts])
 
     return (
         <section className="timeline">

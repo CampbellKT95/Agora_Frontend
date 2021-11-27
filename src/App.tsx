@@ -9,6 +9,7 @@ import Sidebar from "./components/sidebar/sidebar";
 import Tutorials from "./components/tutorials/tutorials";
 import Post from "./components/post/post";
 import Timeline from "./components/timeline/timeline";
+import Profile from "./components/profile/profile";
 
 
 function App() {
@@ -36,6 +37,17 @@ function App() {
           </main>
         </> 
         : <Login />
+      } />
+      <Route path="/personal" element={
+        <>
+          <Navbar />
+          <main className="personal-container">
+            <Header />
+            <Sidebar />
+            <Profile />
+            <Tutorials />
+          </main>
+        </>
       } />
       </Routes>
     </Router>
