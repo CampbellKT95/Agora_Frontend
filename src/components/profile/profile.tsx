@@ -13,6 +13,7 @@ const Profile = () => {
     const [personalPosts, setPersonalPosts] = useState([]);
     const [editModal, setEditModal] = useState(false);
     const [editedPostContent, setEditedPostContent] = useState("")
+    const [editedPostId, setEditedPostId] = useState("");
 
     const {user} = useContext(AuthContext)
 
@@ -33,23 +34,35 @@ const Profile = () => {
 
     }, []);
 
-    const handleEdit = async (post: string) => {
-        const updatedPost = {};
+    const setUpEdit = (postContent: string, postId: string) => {
+        setEditedPostContent(postContent);
+        setEditedPostId(postId)
+        setEditModal(true);
+    }
+
+    const handleEdit = async (e: any) => {
+        e.preventDefault();
+
+        const updatedPost = {
+            content: editedPostContent,
+            userId: user._id
+        };
 
         try {
-            await axios.put("http://localhost:5000/api/posts/" + post, {updatedPost})
+            axios.put("http://localhost:5000/api/posts/" + editedPostId + "/update", {data: updatedPost});
+            setEditModal(false);
 
         } catch (err) {
             console.log(err)
         }
     };
 
-    const handleDelete = async (post: string) => {
+    const handleDelete = async (deletePostId: string) => {
 
         const deleteData = {userId: user._id}
 
         try {
-            axios.delete("http://localhost:5000/api/posts/" + post, {data: deleteData})
+            axios.delete("http://localhost:5000/api/posts/" + deletePostId + "/delete", {data: deleteData})
 
         } catch (err) {
             console.log(err)
@@ -66,28 +79,29 @@ const Profile = () => {
                     comments={post.comments} likes={post.likes} id={post._id} userId={post.userId}/>
                     <div className="edit-delete-btns-container">
                         <button className="edit-btn" 
-                        onClick={() => setEditModal(true)}>
+                        onClick={() => setUpEdit(post.content, post._id)}>
                             <EditIcon />
                         </button>
                         <button className="delete-btn" 
                         onClick={() => handleDelete(post._id)}>
                             <DeleteIcon />
                         </button>
+
+                        <Backdrop sx={{color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1}} open={editModal}>
+                        <section className="comments-modal-container">
+                            <CancelIcon className="close-modal" sx={{fontSize: 30}}
+                            onClick={() => setEditModal(false)} />
+                            <form className="comments-form" onSubmit={(e: any) => handleEdit(e)} >
+                                <textarea className="comment-box"
+                                placeholder="Original post content"
+                                value={editedPostContent} onChange={(e: any) => setEditedPostContent(e.target.value)} />
+                                <button type="submit">
+                                    Edit
+                                </button>
+                            </form>
+                        </section>
+                        </Backdrop>
                     </div>
-
-                    <Backdrop sx={{color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1}} open={editModal}>
-                    <section className="comments-modal-container">
-                        <CancelIcon className="close-modal" sx={{fontSize: 30}}
-                        onClick={() => setEditModal(false)} />
-                        <form onSubmit={() => handleEdit(post._id)} className="comments-form">
-                            <textarea className="comment-box"
-                            placeholder="Original post content"
-                            value={editedPostContent} onChange={(e: any) => setEditedPostContent(e.target.value)} />
-                            <button type="submit">Edit</button>
-                        </form>
-                    </section>
-                </Backdrop>
-
                 </>
                 )
             })}
