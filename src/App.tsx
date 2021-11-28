@@ -10,6 +10,7 @@ import Tutorials from "./components/tutorials/tutorials";
 import Post from "./components/post/post";
 import Timeline from "./components/timeline/timeline";
 import Profile from "./components/profile/profile";
+import PersonalHeader from './components/personalHeader/personalHeader';
 
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
         <>
           <Navbar />
           <main className="personal-container">
-            <Header />
+            <PersonalHeader />
             <Sidebar />
             <Profile />
             <Tutorials />

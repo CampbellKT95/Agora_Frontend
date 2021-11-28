@@ -6,6 +6,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import PersonIcon from '@mui/icons-material/Person';
 import MessageIcon from '@mui/icons-material/Message';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Navbar = () => {
 
@@ -34,6 +35,8 @@ const Navbar = () => {
                 <span className="messages">2</span>
                 <AccountCircleIcon fontSize="large" className="navbar-icons"
                 onClick={() => navigate("/personal")}/>
+                <LogoutIcon fontSize="large" className="navbar-icons" 
+                onClick={() => navigate("/")} />
             </div>
 
         </nav>

@@ -1,5 +1,5 @@
 import "./singleTimeline.css";
-import {useState, useContext, useEffect} from "react";
+import {useState, useContext} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
 import Backdrop from '@mui/material/Backdrop';
@@ -20,11 +20,17 @@ const SingleTimeline = (props: any) => {
 
     const handleLikes = async () => {
         try {
-            axios.put("/posts/" + props.id + "/like", {userId: user._id})
+            await axios.put("/posts/" + props.id + "/like", {userId: user._id})
 
             let {data} = await axios.get("/posts/" + props.id)
-            
-            setLikes(data.likes.length);
+
+            console.log(data);
+
+            if (data.likes.includes(user._id)) {
+                setLikes(likes + 1);
+            } else {
+                setLikes(likes - 1)
+            };
 
         } catch (err) {
             console.log(err)
@@ -44,8 +50,6 @@ const SingleTimeline = (props: any) => {
             console.log(err)
         }
     };
-
-    useEffect(() => {}, [numberComments, likes])
 
     return (
         <div className="timeline-post">

@@ -1,5 +1,6 @@
 import "./navbar-dropdown.css";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -10,10 +11,13 @@ import {FaBars} from "react-icons/fa";
 import PersonIcon from '@mui/icons-material/Person';
 import MessageIcon from '@mui/icons-material/Message';
 import SettingsIcon from '@mui/icons-material/Settings';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const NavbarDropdown = () => {
 
     const [displayMenu, setDisplayMenu] = useState(false);
+
+    const navigate = useNavigate();
 
     return (
         <>
@@ -49,7 +53,16 @@ const NavbarDropdown = () => {
                         <ListItemIcon>
                             <SettingsIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Account" />
+                        <ListItemText primary="Account" onClick={() => navigate("/personal")}/>
+                        </ListItemButton>
+                    </ListItem>
+                    <Divider />
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                        <ListItemIcon>
+                            <LogoutIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Logout" onClick={() => navigate("/")}/>
                         </ListItemButton>
                     </ListItem>
                 </List>

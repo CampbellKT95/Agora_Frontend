@@ -23,8 +23,7 @@ const Profile = () => {
                 const personalPostsResponse = await axios.get("http://localhost:5000/api/posts/" + user._id + "/personal");
 
                 setPersonalPosts(personalPostsResponse.data);
-
-                console.log(personalPosts)
+            
             } catch (err) {
                 console.log(err)
             }
@@ -32,11 +31,11 @@ const Profile = () => {
         };
         fetchPosts();
 
-    }, []);
+    }, [editModal]);
 
     const setUpEdit = (postContent: string, postId: string) => {
         setEditedPostContent(postContent);
-        setEditedPostId(postId)
+        setEditedPostId(postId);
         setEditModal(true);
     }
 
@@ -49,7 +48,7 @@ const Profile = () => {
         };
 
         try {
-            axios.put("http://localhost:5000/api/posts/" + editedPostId + "/update", {data: updatedPost});
+            await axios.put("http://localhost:5000/api/posts/" + editedPostId + "/update", {data: updatedPost});
             setEditModal(false);
 
         } catch (err) {
