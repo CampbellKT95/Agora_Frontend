@@ -3,12 +3,16 @@ import {useState, useEffect, useContext} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import SingleTimeline from "../singleTimeline/singleTimeline";
+import Backdrop from '@mui/material/Backdrop';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 const Profile = () => {
 
     const [personalPosts, setPersonalPosts] = useState([]);
+    const [editModal, setEditModal] = useState(false);
+    const [editedPostContent, setEditedPostContent] = useState("")
 
     const {user} = useContext(AuthContext)
 
@@ -29,8 +33,15 @@ const Profile = () => {
 
     }, []);
 
-    const handleEdit = () => {
+    const handleEdit = async (post: string) => {
+        const updatedPost = {};
 
+        try {
+            await axios.put("http://localhost:5000/api/posts/" + post, {updatedPost})
+
+        } catch (err) {
+            console.log(err)
+        }
     };
 
     const handleDelete = async (post: string) => {
@@ -53,8 +64,9 @@ const Profile = () => {
                 return (<>
                     <SingleTimeline title={post.title} content={post.content}
                     comments={post.comments} likes={post.likes} id={post._id} userId={post.userId}/>
-                    <div className="edit-delete-btns-container" onClick={handleEdit}>
-                        <button className="edit-btn">
+                    <div className="edit-delete-btns-container">
+                        <button className="edit-btn" 
+                        onClick={() => setEditModal(true)}>
                             <EditIcon />
                         </button>
                         <button className="delete-btn" 
@@ -62,6 +74,19 @@ const Profile = () => {
                             <DeleteIcon />
                         </button>
                     </div>
+
+                    <Backdrop sx={{color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1}} open={editModal}>
+                    <section className="comments-modal-container">
+                        <CancelIcon className="close-modal" sx={{fontSize: 30}}
+                        onClick={() => setEditModal(false)} />
+                        <form onSubmit={() => handleEdit(post._id)} className="comments-form">
+                            <textarea className="comment-box"
+                            placeholder="Original post content"
+                            value={editedPostContent} onChange={(e: any) => setEditedPostContent(e.target.value)} />
+                            <button type="submit">Edit</button>
+                        </form>
+                    </section>
+                </Backdrop>
 
                 </>
                 )
