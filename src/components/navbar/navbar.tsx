@@ -3,6 +3,7 @@ import {useState, useContext} from "react";
 import {useNavigate} from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import NavbarDropdown from "../navbar-dropdown/navbar-dropdown";
+import axios from "axios";
 
 import SchoolIcon from '@mui/icons-material/School';
 import PersonIcon from '@mui/icons-material/Person';
@@ -15,21 +16,46 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 const Navbar = () => {
 
-    const {user} = useContext(AuthContext);
-
     const navigate = useNavigate();
 
     const [search, setSearch] = useState("");
 
+    const {user} = useContext(AuthContext);
+
     const [editProfileModal, setEditProfileModal]:any = useState(false);
 
-    const [profileImages, setProfileImages] = useState({
-        coverPicture: "",
-        profilePicture: ""
-    })
+    interface editInterface {
+        userId: string,
+        username: string,
+        languages: string,
+        description: string
+    }
 
-    const handleProfileEdit = () => {
+    const [editedInfo, setEditedInfo] = useState<editInterface>({
+        userId: user._id,
+        username: user.username,
+        languages: user.languages,
+        description: user.description
+    });
 
+
+    const handleProfileEdit = (e: any) => {
+        
+        if (e.target.name === "username") {
+            setEditedInfo({...editedInfo, username: e.target.value});
+        } else if (e.target.name === "languages") {
+            setEditedInfo({...editedInfo, languages: e.target.value});
+        } else {
+            setEditedInfo({...editedInfo, description: e.target.value})
+        }
+    }
+
+    const handleEditSubmit = async (e: any) => {
+        e.preventDefault();
+
+        await axios.put("http://localhost:5000/api/users/" + user._id, editedInfo);
+
+        setEditProfileModal(false);
     }
 
     return (
@@ -60,20 +86,19 @@ const Navbar = () => {
             </div>
 
             <Backdrop sx={{color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1}} open={editProfileModal}>
-                <section className="">
-                    <CancelIcon className="close-modal" sx={{fontSize: 30}}
-                    onClick={() => setEditProfileModal(false)} />
-                    <form className="edit-profile-form" onSubmit={handleProfileEdit} >
-                        <button type="button">
-                            Upload cover
-                        </button>
-                        <button type="button">
-                            upload profile pic
-                        </button>
-                        <input placeholder="languages" />
-                        <input placeholder="description" />
+                <section className="edit-profile-modal">
+                    <CancelIcon sx={{fontSize: 30}}
+                    onClick={() => setEditProfileModal(false)} className="cancel-icon"/>
+                    <form className="edit-profile-form" onSubmit={(e) => handleEditSubmit(e)} >
+                        <input type="text" name="username" placeholder="username" value={editedInfo.username} 
+                        onChange={(e) => handleProfileEdit(e)}/>
+                        <input type="text" name="languages" placeholder="languages" value={editedInfo.languages}
+                        onChange={(e) => handleProfileEdit(e)}/>
+                        <textarea name="description" placeholder="description" 
+                        value={editedInfo.description} 
+                        onChange={(e) => handleProfileEdit(e)}/>
                         <button type="submit">
-                            Edit
+                            Make Changes
                         </button>
                     </form>
                 </section>
