@@ -26,7 +26,6 @@ const Timeline = () => {
                 comments={item.comments} likes={item.likes} id={item._id} userId={item.userId}
                 />
             })}
-            <button className="load-more-timeline">More</button>
         </section>
     )
 }

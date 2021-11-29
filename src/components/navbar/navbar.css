@@ -179,4 +179,19 @@
     margin: -5px auto auto -15px;
     text-align: center;
   }
+
+  .edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .edit-profile-form input {
+    font-size: 1.25rem;
+    border: none;
+    border-bottom: 1px solid black;
+  }
 }

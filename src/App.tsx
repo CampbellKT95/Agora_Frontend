@@ -39,14 +39,13 @@ function App() {
         </> 
         : <Login />
       } />
-      <Route path="/personal" element={
+      <Route path="/personal/:userId" element={
         <>
           <Navbar />
           <main className="personal-container">
             <PersonalHeader />
             <Sidebar />
             <Profile />
-            <Tutorials />
           </main>
         </>
       } />

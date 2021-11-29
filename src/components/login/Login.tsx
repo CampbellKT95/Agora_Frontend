@@ -97,7 +97,7 @@ function Login() {
     <div className="login">
       <div className="title-container">
         <h1>Agora</h1>
-        <p>We know your pain,</p>
+        <p>Learn, grow, and</p>
         <p>share your stories</p>
         <img src="/img/login-img.png" alt="login-img" className="login-img" />
       </div>
