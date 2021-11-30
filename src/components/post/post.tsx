@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 
-const Post = () => {
+const Post = ({setUpdatePosts}: any) => {
 
     const {user} = useContext(AuthContext)
 
@@ -24,9 +24,10 @@ const Post = () => {
         }
     }
 
-    const handlePostSubmit = (e: any) => {
+    const handlePostSubmit = async (e: any) => {
         e.preventDefault();
-        axios.post("/posts", newPost);
+        await axios.post("/posts", newPost);
+        setUpdatePosts(true);
     }
 
     return (

@@ -1,6 +1,6 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import {useContext} from "react";
+import {useState, useContext} from "react";
 import {AuthContext} from "./context/AuthContext";
 import Login from "./components/login/Login";
 import Navbar from "./components/navbar/navbar";
@@ -17,6 +17,8 @@ function App() {
 
   const {user} = useContext(AuthContext);
 
+  const [updatePosts, setUpdatePosts] = useState(false)
+
   return (
     <Router>
       <Routes>
@@ -32,8 +34,8 @@ function App() {
           <main className="main-container">
             <Header />
             <Sidebar />
-            <Post />
-            <Timeline />
+            <Post setUpdatePosts={setUpdatePosts}/>
+            <Timeline updatePosts={updatePosts} setUpdatePosts={setUpdatePosts}/>
             <Tutorials />
           </main>
         </> 
