@@ -15,13 +15,14 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-const NavbarDropdown = () => {
+const NavbarDropdown = ({setEditProfileModal}: any) => {
 
     const {user} = useContext(AuthContext);
 
     const [displayMenu, setDisplayMenu] = useState(false);
 
     const navigate = useNavigate();
+
 
     return (
         <>
@@ -66,7 +67,9 @@ const NavbarDropdown = () => {
                         <ListItemIcon>
                             <SettingsIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Settings" />
+                        <ListItemText primary="Settings" onClick={() => {
+                            setEditProfileModal(true)
+                        }}/>
                         </ListItemButton>
                     </ListItem>
                     <Divider />

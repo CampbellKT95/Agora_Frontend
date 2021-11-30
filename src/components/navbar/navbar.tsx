@@ -46,9 +46,9 @@ const Navbar = () => {
         } else if (e.target.name === "languages") {
             setEditedInfo({...editedInfo, languages: e.target.value});
         } else {
-            setEditedInfo({...editedInfo, description: e.target.value})
+            setEditedInfo({...editedInfo, description: e.target.value});
         }
-    }
+    };
 
     const handleEditSubmit = async (e: any) => {
         e.preventDefault();
@@ -56,7 +56,7 @@ const Navbar = () => {
         await axios.put("http://localhost:5000/api/users/" + user._id, editedInfo);
 
         setEditProfileModal(false);
-    }
+    };
 
     return (
         <nav className="navbar">
@@ -70,7 +70,11 @@ const Navbar = () => {
                 value={search} onChange={(e:any) => setSearch(e.target.value)}/>
             </div>
 
-            <NavbarDropdown />
+
+            
+            <NavbarDropdown setEditProfileModal={setEditProfileModal}/>
+
+
 
             <div className="navbar-icon-container">
                 <PersonIcon fontSize="large" className="navbar-icons" />

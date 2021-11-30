@@ -13,7 +13,7 @@ const Tutorials = () => {
             <section className="tutorials-container">
                 {fakeList.map((tutorial) => {
                     return <SingleTutorial title={tutorial.title} 
-                    description={tutorial.description} />
+                    description={tutorial.description} key={tutorial.id}/>
                 })}
                 <h4 className="more-tutorials">...</h4>
             </section>

@@ -1,6 +1,7 @@
 import "./sidebar.css";
 import {fakeList} from "./fakeList.js";
 import {useState} from "react";
+
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -9,6 +10,11 @@ import Divider from '@mui/material/Divider';
 
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+
+interface friend {
+    name: string,
+    id: string
+}
 
 const Sidebar = () => {
 
@@ -26,14 +32,14 @@ const Sidebar = () => {
             <List>
                 {fakeList.map((friend) => {
                     return (
-                <>
-                    <ListItem disablePadding>
+                <div key={friend.id}>
+                    <ListItem disablePadding >
                         <ListItemButton>
-                        <ListItemText primary={friend} />
+                        <ListItemText primary={friend.name} />
                         </ListItemButton>
                     </ListItem>
                     <Divider />
-                </>
+                </div>
                     )
                 })}
                 <h4 className="more-friends">...</h4>
@@ -45,14 +51,14 @@ const Sidebar = () => {
             <List>
                 {fakeList.map((friend) => {
                     return (
-                <>
+                <div key={friend.id}>
                     <ListItem disablePadding>
                         <ListItemButton>
-                        <ListItemText primary={friend} />
+                        <ListItemText primary={friend.name} />
                         </ListItemButton>
                     </ListItem>
                     <Divider />
-                </>
+                </div>
                     )
                 })}
                 <h4 className="more-friends">...</h4>
