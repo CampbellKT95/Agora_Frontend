@@ -18,11 +18,13 @@ const Timeline = ({updatePosts, setUpdatePosts}: any) => {
 
     useEffect(() => {
         fetchPosts();
+
     }, [user._id, updatePosts])
 
     useEffect(() => {
         setUpdatePosts(false)
     }, [posts])
+
 
     return (
         <section className="timeline">
