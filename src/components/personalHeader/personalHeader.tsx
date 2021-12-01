@@ -1,11 +1,16 @@
 import "./personalHeader.css";
-import {useState, useContext} from "react";
+import {useContext} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 const PersonalHeader = () => {
 
     const {user} = useContext(AuthContext);
+
+    const followUser = async () => {
+
+
+    }
 
     return(
         <section className="personal-header-section">
@@ -17,6 +22,9 @@ const PersonalHeader = () => {
                 <div>
                     <p className="profile-description">{user.description}</p>
                 </div>
+                <button className="follow-btn" onClick={followUser}>
+                    Follow
+                </button>
             </div>
         </section>
     )

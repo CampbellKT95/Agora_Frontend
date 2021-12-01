@@ -80,11 +80,8 @@ function Login() {
 
       if (createAccount.createPassword === createAccount.createPassword2) {
         await axios.post("http://localhost:5000/api/auth/register", createAccount);
-        console.log("user created");
-        navigate("/profile");
         
       } else {
-        console.log("Passwords do not match");
         setCreateError(true);
       }
 

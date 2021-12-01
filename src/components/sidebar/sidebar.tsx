@@ -1,6 +1,6 @@
 import "./sidebar.css";
-import {fakeList} from "./fakeList.js";
-import {useState} from "react";
+import {useState, useContext, useEffect} from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -9,14 +9,21 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
-interface friend {
-    name: string,
-    id: string
+interface friendInterface {
+    username: string,
+    _id: string
 }
 
 const Sidebar = () => {
+
+    const {user} = useContext(AuthContext);
+
+    useEffect(() => {
+        const friendsList = user.following;
+        console.log(friendsList)
+
+    }, [])
 
     const [toggleMobileFriends, setToggleMobileFriends] = useState(false);
 
@@ -30,12 +37,12 @@ const Sidebar = () => {
         <aside className="sidebar">
             <h1 className="friends-title">Friends</h1>
             <List>
-                {fakeList.map((friend) => {
+                {user.following.map((friend: friendInterface) => {
                     return (
-                <div key={friend.id}>
+                <div key={friend._id}>
                     <ListItem disablePadding >
                         <ListItemButton>
-                        <ListItemText primary={friend.name} />
+                        <ListItemText primary={friend.username} />
                         </ListItemButton>
                     </ListItem>
                     <Divider />
@@ -49,12 +56,12 @@ const Sidebar = () => {
         {/* mobile-sidebar */}
         <aside className={`${toggleMobileFriends ? "mobile-sidebar-shown" : "mobile-sidebar-hidden"}`}>
             <List>
-                {fakeList.map((friend) => {
+                {user.following.map((friend: friendInterface) => {
                     return (
-                <div key={friend.id}>
+                <div key={friend._id}>
                     <ListItem disablePadding>
                         <ListItemButton>
-                        <ListItemText primary={friend.name} />
+                        <ListItemText primary={friend.username} />
                         </ListItemButton>
                     </ListItem>
                     <Divider />

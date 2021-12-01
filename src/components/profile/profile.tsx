@@ -17,18 +17,18 @@ const Profile = () => {
 
     const {user} = useContext(AuthContext)
 
+    const fetchPosts = async () => {
+    try {
+        const personalPostsResponse = await axios.get("http://localhost:5000/api/posts/" + user._id + "/personal");
+
+        setPersonalPosts(personalPostsResponse.data);
+    
+        } catch (err) {
+            console.log(err)
+        }
+    };
+
     useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const personalPostsResponse = await axios.get("http://localhost:5000/api/posts/" + user._id + "/personal");
-
-                setPersonalPosts(personalPostsResponse.data);
-            
-            } catch (err) {
-                console.log(err)
-            }
-
-        };
         fetchPosts();
 
     }, [editModal]);
@@ -49,6 +49,7 @@ const Profile = () => {
 
         try {
             await axios.put("http://localhost:5000/api/posts/" + editedPostId + "/update", {data: updatedPost});
+
             setEditModal(false);
 
         } catch (err) {
@@ -61,7 +62,9 @@ const Profile = () => {
         const deleteData = {userId: user._id}
 
         try {
-            axios.delete("http://localhost:5000/api/posts/" + deletePostId + "/delete", {data: deleteData})
+            await axios.delete("http://localhost:5000/api/posts/" + deletePostId + "/delete", {data: deleteData});
+
+            fetchPosts();
 
         } catch (err) {
             console.log(err)

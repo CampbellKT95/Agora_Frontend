@@ -24,6 +24,18 @@
   padding: 1rem 0;
 }
 
+.follow-btn {
+  margin-left: 43%;
+  width: 4.5rem;
+  height: 2rem;
+  font-size: 1.15rem;
+  background-color: #0076bd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 800px) and (max-width: 1199px) {
   .header-section {
     grid-template-columns: 0.2fr 1fr;
@@ -55,5 +67,9 @@
   .header-section {
     grid-template-columns: 0.2fr 1fr;
     margin-left: -20%;
+  }
+
+  .follow-btn {
+    margin-left: 47%;
   }
 }

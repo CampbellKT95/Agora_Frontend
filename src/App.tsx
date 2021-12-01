@@ -25,8 +25,6 @@ function App() {
 
         <Route path="/" element={<Login />} />
 
-        {/* <Route path="/profile/:username"> */}
-
         <Route path="/profile" element={
         user ? 
           <>
