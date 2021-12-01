@@ -22,8 +22,11 @@ const Navbar = () => {
 
     const [search, setSearch] = useState("");
 
-    const handleSearchSubmit = (e: any) => {
-        e.preventDefault()
+    const handleSearchSubmit = async (e: any) => {
+        e.preventDefault();
+        const {data} = await axios.get("http://localhost:5000/api/users/find/" + search);
+        console.log(data)
+
     }
 
     const [editProfileModal, setEditProfileModal]:any = useState(false);
@@ -70,10 +73,9 @@ const Navbar = () => {
             </div>
 
             <div className="search">
-                <form onSubmit={handleSearchSubmit}>
                     <input type="text" placeholder="Searching for someone?" className="search-bar"
                     value={search} onChange={(e:any) => setSearch(e.target.value)}/>
-                </form>
+                    <button onClick={handleSearchSubmit}>Find</button>
             </div>
 
             <NavbarDropdown setEditProfileModal={setEditProfileModal}/>
