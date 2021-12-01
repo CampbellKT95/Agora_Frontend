@@ -24,12 +24,13 @@
 
 .search {
   grid-column: 2 / 4;
+  position: relative;
 }
 
 .search-bar {
   display: inline-block;
   margin: 5% auto auto auto;
-  width: 100%;
+  width: 70%;
   height: 2rem;
   font-size: 1.25rem;
   border-radius: 5px;
@@ -38,6 +39,15 @@
 
 .search-bar:focus {
   outline: none;
+}
+
+.search-bar-btn {
+  position: absolute;
+  margin: 5% auto auto auto;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
 }
 
 .navbar-icon-container {
@@ -140,10 +150,19 @@
     display: inline-block;
   }
 
+  .search {
+    grid-column: 2 / 4;
+    position: relative;
+  }
+
   .search-bar {
-    margin: 4% auto auto 20%;
-    width: 20rem;
-    grid-column: 2/4;
+    margin: 7% auto auto 20%;
+    width: 15rem;
+  }
+
+  .search-bar-btn {
+    position: absolute;
+    margin-top: 9%;
   }
 
   .navbar-icon-container {
@@ -206,6 +225,11 @@
   .search-bar {
     width: 35rem;
     margin: 3.5% auto auto 5%;
+  }
+
+  .search-bar-btn {
+    position: absolute;
+    margin-top: 3.5%;
   }
 
   .navbar-icon-container {

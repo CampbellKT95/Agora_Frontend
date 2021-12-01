@@ -1,11 +1,17 @@
 import "./personalHeader.css";
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 const PersonalHeader = () => {
 
     const {user} = useContext(AuthContext);
+
+
+    let params = new window.URLSearchParams(window.location.search)
+
+    console.log(window.location.pathname)
+
 
     const followUser = async () => {
 

@@ -6,6 +6,7 @@ import NavbarDropdown from "../navbar-dropdown/navbar-dropdown";
 import axios from "axios";
 
 import SchoolIcon from '@mui/icons-material/School';
+import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import MessageIcon from '@mui/icons-material/Message';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -25,8 +26,9 @@ const Navbar = () => {
     const handleSearchSubmit = async (e: any) => {
         e.preventDefault();
         const {data} = await axios.get("http://localhost:5000/api/users/find/" + search);
-        console.log(data)
+        const foundUser = data[0];
 
+        navigate("/personal/" + foundUser.soughtId)
     }
 
     const [editProfileModal, setEditProfileModal]:any = useState(false);
@@ -75,7 +77,8 @@ const Navbar = () => {
             <div className="search">
                     <input type="text" placeholder="Searching for someone?" className="search-bar"
                     value={search} onChange={(e:any) => setSearch(e.target.value)}/>
-                    <button onClick={handleSearchSubmit}>Find</button>
+                    <button onClick={handleSearchSubmit} className="search-bar-btn"><SearchIcon 
+                    sx={{fontSize: 30}} className="search-bar-btn" /></button>
             </div>
 
             <NavbarDropdown setEditProfileModal={setEditProfileModal}/>
