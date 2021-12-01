@@ -1,6 +1,7 @@
 import "./sidebar.css";
 import {useState, useContext, useEffect} from "react";
 import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -11,19 +12,32 @@ import Divider from '@mui/material/Divider';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 interface friendInterface {
-    username: string,
-    _id: string
+    username: string
 }
 
 const Sidebar = () => {
 
     const {user} = useContext(AuthContext);
 
-    useEffect(() => {
-        const friendsList = user.following;
-        console.log(friendsList)
+    const [friendsNames, setFriendsNames] = useState<Array<string>>([]);
 
-    }, [])
+    const fetchFriends = () => {
+        const friendsList: Array<string> = []
+
+        user.following.map( async (friend: string) => {
+            const {data} = await axios.get("http://localhost:5000/api/users/" + friend);
+            const nextFriend = data.username;
+            friendsList.push(nextFriend);
+            return friendsList;
+        });
+
+        setFriendsNames(friendsList);
+    }
+
+    useEffect(() => {
+        fetchFriends();
+
+    }, []);
 
     const [toggleMobileFriends, setToggleMobileFriends] = useState(false);
 
@@ -35,14 +49,14 @@ const Sidebar = () => {
         </button>
 
         <aside className="sidebar">
-            <h1 className="friends-title">Friends</h1>
+            <h1 className="friends-title">Following</h1>
             <List>
-                {user.following.map((friend: friendInterface) => {
+                {friendsNames.map((friend: string) => {
                     return (
-                <div key={friend._id}>
+                <div>
                     <ListItem disablePadding >
                         <ListItemButton>
-                        <ListItemText primary={friend.username} />
+                        <ListItemText primary={friend} />
                         </ListItemButton>
                     </ListItem>
                     <Divider />
@@ -58,10 +72,10 @@ const Sidebar = () => {
             <List>
                 {user.following.map((friend: friendInterface) => {
                     return (
-                <div key={friend._id}>
+                <div>
                     <ListItem disablePadding>
                         <ListItemButton>
-                        <ListItemText primary={friend.username} />
+                        <ListItemText primary={friend} />
                         </ListItemButton>
                     </ListItem>
                     <Divider />

@@ -18,9 +18,13 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
+        const {user} = useContext(AuthContext);
+
     const [search, setSearch] = useState("");
 
-    const {user} = useContext(AuthContext);
+    const handleSearchSubmit = (e: any) => {
+        e.preventDefault()
+    }
 
     const [editProfileModal, setEditProfileModal]:any = useState(false);
 
@@ -66,15 +70,13 @@ const Navbar = () => {
             </div>
 
             <div className="search">
-                <input type="text" placeholder="Searching for someone?" className="search-bar"
-                value={search} onChange={(e:any) => setSearch(e.target.value)}/>
+                <form onSubmit={handleSearchSubmit}>
+                    <input type="text" placeholder="Searching for someone?" className="search-bar"
+                    value={search} onChange={(e:any) => setSearch(e.target.value)}/>
+                </form>
             </div>
 
-
-            
             <NavbarDropdown setEditProfileModal={setEditProfileModal}/>
-
-
 
             <div className="navbar-icon-container">
                 <PersonIcon fontSize="large" className="navbar-icons" />

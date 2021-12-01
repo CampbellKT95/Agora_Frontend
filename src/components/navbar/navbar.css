@@ -187,6 +187,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .navbar {
+    height: 4rem;
+  }
+
   .logo-icon {
     grid-column: 1;
     margin-top: 10%;
@@ -200,8 +204,8 @@
   }
 
   .search-bar {
-    width: 25rem;
-    margin: 2% auto auto 5%;
+    width: 35rem;
+    margin: 3.5% auto auto 5%;
   }
 
   .navbar-icon-container {
