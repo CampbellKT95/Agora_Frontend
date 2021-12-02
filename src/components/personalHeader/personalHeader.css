@@ -36,6 +36,10 @@
   cursor: pointer;
 }
 
+.follow-btn:hover {
+  opacity: 0.7;
+}
+
 @media screen and (min-width: 800px) and (max-width: 1199px) {
   .header-section {
     grid-template-columns: 0.2fr 1fr;

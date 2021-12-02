@@ -28,6 +28,12 @@ const Post = ({setUpdatePosts}: any) => {
         e.preventDefault();
         await axios.post("/posts", newPost);
         setUpdatePosts(true);
+        setNewPost({
+            title: "",
+            content: "",
+            userId: user._id,
+            username: user.username
+        })
     }
 
     return (

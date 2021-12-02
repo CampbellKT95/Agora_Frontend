@@ -20,7 +20,10 @@ const PersonalHeader = () => {
 
     }, [])
 
-    const followUser = async () => {}
+    const followUser = async () => {
+        await axios.put("http://localhost:5000/api/users/" + profilePageUser._id + "/follow", {userId: user._id});
+
+    }
 
     return(
         <section className="personal-header-section">
