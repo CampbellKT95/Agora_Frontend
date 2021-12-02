@@ -11,18 +11,40 @@ const PersonalHeader = () => {
     const profileUrl = window.location.pathname;
     const paramId = profileUrl.toString().slice(10)
 
+    const [ownPage, setOwnPage] = useState(false);
+
+    const [isFollowing, setIsFollowing] = useState(false);
+
     useEffect(() => {
         const fetchPersonalPage = async () => {
             const {data} = await axios.get("http://localhost:5000/api/users/" + paramId)
             setProfilePageUser(data);
+
+            if (paramId === user._id) {
+                setOwnPage(true)
+            }
+
+            if (data.followers.includes(user._id)) {
+            setIsFollowing(true);
+
+        } else {
+            setIsFollowing(false);
+        }
+
         };
         fetchPersonalPage();
 
     }, [])
 
     const followUser = async () => {
-        await axios.put("http://localhost:5000/api/users/" + profilePageUser._id + "/follow", {userId: user._id});
+        const {data} = await axios.put("http://localhost:5000/api/users/" + profilePageUser._id + "/follow", {userId: user._id});
 
+        if (data.followers.includes(user._id)) {
+            setIsFollowing(true);
+
+        } else {
+            setIsFollowing(false);
+        }
     }
 
     return(
@@ -39,9 +61,11 @@ const PersonalHeader = () => {
                 <div>
                     <p className="profile-description">{profilePageUser.description}</p>
                 </div>
-                <button className="follow-btn" onClick={followUser}>
-                    Follow
-                </button>
+                <div className={`${ownPage ? "hide-follow-btn-container" : "follow-btn-container"}`}>
+                    <button className={`${isFollowing ? "unfollow-btn" : "follow-btn"}`} onClick={followUser}>
+                        {`${isFollowing ? "Unfollow" : "Follow"}`}
+                    </button>
+                </div>
             </div>
         </section>
     )

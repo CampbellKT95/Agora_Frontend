@@ -24,9 +24,17 @@
   padding: 1rem 0;
 }
 
+.follow-btn-container {
+  display: block;
+}
+
+.hide-follow-btn-container {
+  display: none;
+}
+
 .follow-btn {
   margin-left: 43%;
-  width: 4.5rem;
+  width: 5rem;
   height: 2rem;
   font-size: 1.15rem;
   background-color: #0076bd;
@@ -37,6 +45,23 @@
 }
 
 .follow-btn:hover {
+  opacity: 0.7;
+}
+
+.unfollow-btn {
+  margin-left: 47%;
+  margin-bottom: 1rem;
+  width: 5rem;
+  height: 2rem;
+  font-size: 1.15rem;
+  background-color: rgba(202, 0, 0, 0.664);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.unfollow-btn:hover {
   opacity: 0.7;
 }
 
