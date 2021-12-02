@@ -1,23 +1,33 @@
 import "./tutorials.css";
+import {useState, useEffect} from "react";
 import SingleTutorial from "../singleTutorial/singleTutorial";
-
-import {fakeList} from "./fakeList";
+import axios from "axios";
 
 const Tutorials = () => {
 
+    const [trendingPosts, setTrendingPosts] = useState([])
+
+    const fetchTrending = async () => {
+        const {data} = await axios.get("http://localhost:5000/api/posts/all/trending");
+
+        return setTrendingPosts(data);
+    }
+
+    useEffect(() => {
+        fetchTrending();
+
+    }, [])
+
+
     return (
         <div className="tutorials">
-
-            <h1 className="tutorials-title">Tutorials</h1>
-
+            <h1 className="tutorials-title">Trending</h1>
             <section className="tutorials-container">
-                {fakeList.map((tutorial) => {
-                    return <SingleTutorial title={tutorial.title} 
-                    description={tutorial.description} key={tutorial.id}/>
+                {trendingPosts.map((post: any) => {
+                    return <SingleTutorial title={post.title} 
+                    description={post.content} key={post._id}/>
                 })}
-                <h4 className="more-tutorials">...</h4>
             </section>
-
         </div>
     )
 }
