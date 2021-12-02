@@ -10,16 +10,30 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 const Profile = () => {
 
+    const {user} = useContext(AuthContext)
+
+    const [profilePageUser, setProfilePageUser] = useState(user)
+
+    const profileUrl = window.location.pathname;
+    const paramId = profileUrl.toString().slice(10)
+
+    useEffect(() => {
+        const fetchPersonalPage = async () => {
+            const {data} = await axios.get("http://localhost:5000/api/users/" + paramId)
+            setProfilePageUser(data);
+        };
+        fetchPersonalPage();
+
+    }, [])
+
     const [personalPosts, setPersonalPosts] = useState([]);
     const [editModal, setEditModal] = useState(false);
     const [editedPostContent, setEditedPostContent] = useState("")
     const [editedPostId, setEditedPostId] = useState("");
 
-    const {user} = useContext(AuthContext)
-
     const fetchPosts = async () => {
     try {
-        const personalPostsResponse = await axios.get("http://localhost:5000/api/posts/" + user._id + "/personal");
+        const personalPostsResponse = await axios.get("http://localhost:5000/api/posts/" + profilePageUser._id + "/personal");
 
         setPersonalPosts(personalPostsResponse.data);
     
@@ -31,7 +45,7 @@ const Profile = () => {
     useEffect(() => {
         fetchPosts();
 
-    }, [editModal]);
+    }, [editModal, profilePageUser]);
 
     const setUpEdit = (postContent: string, postId: string) => {
         setEditedPostContent(postContent);
@@ -47,28 +61,36 @@ const Profile = () => {
             userId: user._id
         };
 
-        try {
-            await axios.put("http://localhost:5000/api/posts/" + editedPostId + "/update", {data: updatedPost});
+        if (user._id === profilePageUser._id) {
+            try {
+                await axios.put("http://localhost:5000/api/posts/" + editedPostId + "/update", {data: updatedPost});
 
-            setEditModal(false);
+                setEditModal(false);
 
-        } catch (err) {
-            console.log(err)
-        }
-    };
-
+            } catch (err) {
+                console.log(err)
+            }
+        } else {
+            console.log("You cannot edit another's post")
+        };
+    }
+    
     const handleDelete = async (deletePostId: string) => {
 
         const deleteData = {userId: user._id}
 
-        try {
-            await axios.delete("http://localhost:5000/api/posts/" + deletePostId + "/delete", {data: deleteData});
+        if (user._id === profilePageUser._id) {
+            try {
+                await axios.delete("http://localhost:5000/api/posts/" + deletePostId + "/delete", {data: deleteData});
 
-            fetchPosts();
+                fetchPosts();
 
-        } catch (err) {
-            console.log(err)
-        }
+            } catch (err) {
+                console.log(err)
+            }
+        } else {
+            console.log("You cannot delete another's post")
+        };
     };
 
     return ( <section className="personal-profile-container">
@@ -81,7 +103,9 @@ const Profile = () => {
                     comments={post.comments} likes={post.likes} id={post._id} userId={post.userId}/>
                     <div className="edit-delete-btns-container">
                         <button className="edit-btn" 
-                        onClick={() => setUpEdit(post.content, post._id)}>
+                        onClick={ () => {if (user._id === profilePageUser._id) {
+                            setUpEdit(post.content, post._id)
+                        }}}>
                             <EditIcon />
                         </button>
                         <button className="delete-btn" 

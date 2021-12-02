@@ -1,32 +1,40 @@
 import "./personalHeader.css";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 const PersonalHeader = () => {
 
     const {user} = useContext(AuthContext);
+    const [profilePageUser, setProfilePageUser] = useState(user)
 
+    const profileUrl = window.location.pathname;
+    const paramId = profileUrl.toString().slice(10)
 
-    let params = new window.URLSearchParams(window.location.search)
+    useEffect(() => {
+        const fetchPersonalPage = async () => {
+            const {data} = await axios.get("http://localhost:5000/api/users/" + paramId)
+            setProfilePageUser(data);
+        };
+        fetchPersonalPage();
 
-    console.log(window.location.pathname)
+    }, [])
 
-
-    const followUser = async () => {
-
-
-    }
+    const followUser = async () => {}
 
     return(
         <section className="personal-header-section">
             <div className="header-personal">
                 <div className="profile-personal-detail">
-                    <h1>{user.username}</h1>
-                    <p>{user.languages}</p>
+                    <h1>
+                        {profilePageUser.username}
+                    </h1>
+                    <p>
+                        {profilePageUser.languages}
+                    </p>
                 </div>
                 <div>
-                    <p className="profile-description">{user.description}</p>
+                    <p className="profile-description">{profilePageUser.description}</p>
                 </div>
                 <button className="follow-btn" onClick={followUser}>
                     Follow
