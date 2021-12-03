@@ -18,14 +18,13 @@ const Tutorials = () => {
 
     }, [])
 
-
     return (
         <div className="tutorials">
             <h1 className="tutorials-title">Trending</h1>
             <section className="tutorials-container">
                 {trendingPosts.map((post: any) => {
-                    return <SingleTutorial title={post.title} 
-                    description={post.content} key={post._id}/>
+                    return <SingleTutorial title={post.title} likes={post.likes}
+                    description={post.content} key={post._id} comments={post.comments}/>
                 })}
             </section>
         </div>

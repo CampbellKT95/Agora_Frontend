@@ -1,5 +1,4 @@
 .sidebar {
-  display: none;
 }
 
 .friends-title {
@@ -7,6 +6,7 @@
   border-bottom: 1px solid black;
   padding-bottom: 5%;
   width: 40%;
+  color: #0076bd;
 }
 
 .more-friends {
@@ -20,11 +20,27 @@
 .mobile-sidebar-shown {
   text-align: center;
   display: inline-block;
-  border-radius: 5px;
-  margin: -3rem auto auto auto;
-  width: 7rem;
+  border-radius: 0 5px 5px 0;
+  margin: -2.5rem auto auto auto;
+  width: 6rem;
   position: absolute;
-  background-color: white;
+  background-color: #0076bd;
+  color: white;
+}
+
+.friends-list {
+  text-align: center;
+  font-size: 1.15rem;
+}
+
+.friend-name {
+  padding-bottom: 0.5rem;
+  margin: 1rem auto 1rem auto;
+}
+
+.friend-name:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 .small-friends-arrow {
@@ -44,6 +60,14 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.following-name {
+  font-size: 1.15rem;
+}
+
+.following-name:hover {
+  opacity: 0.7;
 }
 
 @media screen and (min-width: 800px) and (max-width: 1199px) {
@@ -92,5 +116,12 @@
 
   .mobile-sidebar-shown {
     display: none;
+  }
+
+  .following-name {
+    cursor: pointer;
+  }
+
+  .following-name:hover {
   }
 }

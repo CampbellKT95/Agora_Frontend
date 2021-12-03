@@ -1,23 +1,17 @@
 import "./sidebar.css";
 import {useState, useContext, useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
-
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-
-interface friendInterface {
-    username: string
-}
 
 const Sidebar = () => {
 
     const {user} = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const [friendsNames, setFriendsNames] = useState<Array<string>>([]);
 
@@ -26,8 +20,7 @@ const Sidebar = () => {
 
         user.following.map( async (friend: string) => {
             const {data} = await axios.get("http://localhost:5000/api/users/" + friend);
-            const nextFriend = data.username;
-            friendsList.push(nextFriend);
+            friendsList.push(data);
             return friendsList;
         });
 
@@ -38,6 +31,10 @@ const Sidebar = () => {
         fetchFriends();
 
     }, []);
+
+    const handleFriendClick = (e: any) => {
+        navigate("/personal/" + e.target.id)
+    };
 
     const [toggleMobileFriends, setToggleMobileFriends] = useState(false);
 
@@ -50,39 +47,26 @@ const Sidebar = () => {
 
         <aside className="sidebar">
             <h1 className="friends-title">Following</h1>
-            <List>
-                {friendsNames.map((friend: string) => {
+                {friendsNames.map((friend: any) => {
                     return (
-                <div>
-                    <ListItem disablePadding >
-                        <ListItemButton>
-                        <ListItemText primary={friend} />
-                        </ListItemButton>
-                    </ListItem>
-                    <Divider />
+                <div className="following-name">
+                    <p id={friend._id} onClick={(e: any) => handleFriendClick(e)}>{friend.username}</p>
                 </div>
                     )
                 })}
-                <h4 className="more-friends">...</h4>
-            </List>
         </aside>
 
         {/* mobile-sidebar */}
         <aside className={`${toggleMobileFriends ? "mobile-sidebar-shown" : "mobile-sidebar-hidden"}`}>
             <List>
-                {user.following.map((friend: friendInterface) => {
+                {friendsNames.map((friend: any) => {
                     return (
-                <div>
-                    <ListItem disablePadding>
-                        <ListItemButton>
-                        <ListItemText primary={friend} />
-                        </ListItemButton>
-                    </ListItem>
-                    <Divider />
+                <div className="friends-list">
+                    <h4 className="friend-name">{friend.username}</h4>
+                    
                 </div>
                     )
                 })}
-                <h4 className="more-friends">...</h4>
             </List>
         </aside>
     </>

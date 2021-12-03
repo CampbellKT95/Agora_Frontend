@@ -23,3 +23,15 @@
   margin: 0.5 auto auto auto;
   padding: 0 0 1rem 0;
 }
+
+@media screen and (min-width: 800px) {
+  .hide-trending-modal {
+    display: hide;
+  }
+
+  .trending-modal {
+    display: inline-block;
+    position: absolute;
+    background-color: #0076bd;
+  }
+}
