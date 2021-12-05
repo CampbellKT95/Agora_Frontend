@@ -42,7 +42,7 @@ function Login() {
     if (error) {
       setLoginError(true);
     } else {
-      navigate("/profile")
+      navigate("/timeline")
     }
   }
 

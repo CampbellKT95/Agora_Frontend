@@ -1,10 +1,10 @@
-import "./post.css";
+import "./newPost.css";
 import {useState, useContext} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 
-const Post = ({setUpdatePosts}: any) => {
+const NewPost = ({setUpdatePosts}: any) => {
 
     const {user} = useContext(AuthContext)
 
@@ -50,4 +50,4 @@ const Post = ({setUpdatePosts}: any) => {
     )
 }
 
-export default Post;
+export default NewPost;

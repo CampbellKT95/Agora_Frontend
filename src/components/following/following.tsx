@@ -1,4 +1,4 @@
-import "./sidebar.css";
+import "./following.css";
 import {useState, useContext, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -7,7 +7,7 @@ import axios from "axios";
 import List from '@mui/material/List';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-const Sidebar = () => {
+const Following = () => {
 
     const {user} = useContext(AuthContext);
 
@@ -33,7 +33,7 @@ const Sidebar = () => {
     }, []);
 
     const handleFriendClick = (e: any) => {
-        navigate("/personal/" + e.target.id)
+        navigate("/profile/" + e.target.id)
     };
 
     const [toggleMobileFriends, setToggleMobileFriends] = useState(false);
@@ -72,4 +72,4 @@ const Sidebar = () => {
     </>
 }
 
-export default Sidebar;
+export default Following;

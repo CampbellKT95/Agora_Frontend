@@ -1,15 +1,15 @@
-import "./personalHeader.css";
+import "./profileHeader.css";
 import {useContext, useEffect, useState} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
-const PersonalHeader = () => {
+const ProfileHeader = () => {
 
     const {user} = useContext(AuthContext);
     const [profilePageUser, setProfilePageUser] = useState(user)
 
     const profileUrl = window.location.pathname;
-    const paramId = profileUrl.toString().slice(10)
+    const paramId = profileUrl.toString().slice(9)
 
     const [ownPage, setOwnPage] = useState(false);
 
@@ -17,7 +17,9 @@ const PersonalHeader = () => {
 
     useEffect(() => {
         const fetchPersonalPage = async () => {
+            console.log(paramId)
             const {data} = await axios.get("http://localhost:5000/api/users/" + paramId)
+
             setProfilePageUser(data);
 
             if (paramId === user._id) {
@@ -71,4 +73,4 @@ const PersonalHeader = () => {
     )
 }
 
-export default PersonalHeader;
+export default ProfileHeader;

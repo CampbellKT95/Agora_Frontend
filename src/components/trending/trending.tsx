@@ -1,9 +1,9 @@
-import "./tutorials.css";
+import "./trending.css";
 import {useState, useEffect} from "react";
-import SingleTutorial from "../singleTutorial/singleTutorial";
+import SingleTrending from "../singleTrending/singleTrending";
 import axios from "axios";
 
-const Tutorials = () => {
+const Trending = () => {
 
     const [trendingPosts, setTrendingPosts] = useState([])
 
@@ -23,7 +23,7 @@ const Tutorials = () => {
             <h1 className="tutorials-title">Trending</h1>
             <section className="tutorials-container">
                 {trendingPosts.map((post: any) => {
-                    return <SingleTutorial title={post.title} likes={post.likes}
+                    return <SingleTrending title={post.title} likes={post.likes}
                     description={post.content} key={post._id} comments={post.comments}/>
                 })}
             </section>
@@ -31,4 +31,4 @@ const Tutorials = () => {
     )
 }
 
-export default Tutorials
+export default Trending;

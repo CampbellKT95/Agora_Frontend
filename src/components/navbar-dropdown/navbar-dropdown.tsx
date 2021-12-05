@@ -58,7 +58,7 @@ const NavbarDropdown = ({setEditProfileModal}: any) => {
                         <ListItemIcon>
                             <AccountCircleIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Account" onClick={() => navigate("/personal")}/>
+                        <ListItemText primary="Account" onClick={() => navigate("/profile")}/>
                         </ListItemButton>
                     </ListItem>
                     <Divider />

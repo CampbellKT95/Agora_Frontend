@@ -5,12 +5,12 @@ import {AuthContext} from "./context/AuthContext";
 import Login from "./components/login/Login";
 import Navbar from "./components/navbar/navbar";
 import Header from "./components/header/header";
-import Sidebar from "./components/sidebar/sidebar";
-import Tutorials from "./components/tutorials/tutorials";
-import Post from "./components/post/post";
+import Following from "./components/following/following";
+import Trending from "./components/trending/trending";
+import NewPost from "./components/newPost/newPost";
 import Timeline from "./components/timeline/timeline";
 import Profile from "./components/profile/profile";
-import PersonalHeader from './components/personalHeader/personalHeader';
+import ProfileHeader from './components/profileHeader/profileHeader';
 
 
 function App() {
@@ -25,26 +25,26 @@ function App() {
 
         <Route path="/" element={<Login />} />
 
-        <Route path="/profile" element={
+        <Route path="/timeline" element={
         user ? 
           <>
           <Navbar />
           <main className="main-container">
             <Header />
-            <Sidebar />
-            <Post setUpdatePosts={setUpdatePosts}/>
+            <Following />
+            <NewPost setUpdatePosts={setUpdatePosts}/>
             <Timeline updatePosts={updatePosts} setUpdatePosts={setUpdatePosts}/>
-            <Tutorials />
+            <Trending />
           </main>
         </> 
         : <Login />
       } />
-      <Route path="/personal/:userId" element={
+      <Route path="/profile/:userId" element={
         <>
           <Navbar />
           <main className="personal-container">
-            <PersonalHeader />
-            <Sidebar />
+            <ProfileHeader />
+            <Following />
             <Profile />
           </main>
         </>

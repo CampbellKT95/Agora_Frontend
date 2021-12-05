@@ -28,7 +28,7 @@ const Navbar = () => {
         const {data} = await axios.get("http://localhost:5000/api/users/find/" + search);
         const foundUser = data[0];
 
-        navigate("/personal/" + foundUser.soughtId)
+        navigate("/profile/" + foundUser.soughtId)
     }
 
     const [editProfileModal, setEditProfileModal]:any = useState(false);
@@ -69,7 +69,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <div className="logo" onClick={() => navigate("/profile")}>
+            <div className="logo" onClick={() => navigate("/timeline")}>
                 <SchoolIcon sx={{fontSize: 50}} className="logo-icon" />
                 <h1 className="logo-text">Agora</h1>
             </div>
@@ -89,7 +89,7 @@ const Navbar = () => {
                 <MessageIcon fontSize="large" className="navbar-icons"/>
                 <span className="messages">2</span>
                 <AccountCircleIcon fontSize="large" className="navbar-icons"
-                onClick={() => navigate("/personal/" + user._id)}/>
+                onClick={() => navigate("/profile/" + user._id)}/>
                 <SettingsIcon fontSize="large" className="navbar-icons"
                 onClick={() => setEditProfileModal(true)}/>
                 <LogoutIcon fontSize="large" className="navbar-icons" 

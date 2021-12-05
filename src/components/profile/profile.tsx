@@ -15,7 +15,7 @@ const Profile = () => {
     const [profilePageUser, setProfilePageUser] = useState(user)
 
     const profileUrl = window.location.pathname;
-    const paramId = profileUrl.toString().slice(10)
+    const paramId = profileUrl.toString().slice(9)
 
     useEffect(() => {
         const fetchPersonalPage = async () => {

@@ -1,10 +1,10 @@
-import "./singleTutorial.css";
+import "./singleTrending.css";
 import {useState, useContext} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import CancelIcon from '@mui/icons-material/Cancel';
 
-const SingleTutorial = (props: any) => {
+const SingleTrending = (props: any) => {
 
     const {user} = useContext(AuthContext);
 
@@ -21,4 +21,4 @@ const SingleTutorial = (props: any) => {
     )
 };
 
-export default SingleTutorial;
+export default SingleTrending;
