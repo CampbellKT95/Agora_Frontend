@@ -3,17 +3,30 @@ import {useContext, useEffect, useState} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
+interface userInterface {
+    _id: string,
+    description: string,
+    email: string,
+    followers: [string],
+    following: [string],
+    isAdmin: boolean,
+    languages: string,
+    username: string 
+}
+
 const ProfileHeader = () => {
 
     const {user} = useContext(AuthContext);
-    const [profilePageUser, setProfilePageUser] = useState(user)
+    const [profilePageUser, setProfilePageUser] = useState<userInterface>(user)
+
+    console.log(user);
 
     const profileUrl = window.location.pathname;
     const paramId = profileUrl.toString().slice(9)
 
-    const [ownPage, setOwnPage] = useState(false);
+    const [ownPage, setOwnPage] = useState<boolean>(false);
 
-    const [isFollowing, setIsFollowing] = useState(false);
+    const [isFollowing, setIsFollowing] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchPersonalPage = async () => {

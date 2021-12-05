@@ -19,7 +19,7 @@ const NavbarDropdown = ({setEditProfileModal}: any) => {
 
     const {user} = useContext(AuthContext);
 
-    const [displayMenu, setDisplayMenu] = useState(false);
+    const [displayMenu, setDisplayMenu] = useState<boolean>(false);
 
     const navigate = useNavigate();
 

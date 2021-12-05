@@ -3,9 +3,20 @@ import {useState, useEffect} from "react";
 import SingleTrending from "../singleTrending/singleTrending";
 import axios from "axios";
 
+interface postInterface {
+    _id: string,
+    comments: [string],
+    content: string,
+    createdAt: string,
+    likes: [string],
+    title: string,
+    userId: string,
+    username: string
+}
+
 const Trending = () => {
 
-    const [trendingPosts, setTrendingPosts] = useState([])
+    const [trendingPosts, setTrendingPosts] = useState<postInterface[]>([])
 
     const fetchTrending = async () => {
         const {data} = await axios.get("http://localhost:5000/api/posts/all/trending");

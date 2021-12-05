@@ -19,7 +19,7 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
-        const {user} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
 
     const [search, setSearch] = useState("");
 
@@ -31,7 +31,9 @@ const Navbar = () => {
         navigate("/profile/" + foundUser.soughtId)
     }
 
-    const [editProfileModal, setEditProfileModal]:any = useState(false);
+    const [editProfileModal, setEditProfileModal] = useState<boolean>(false);
+
+    // const [editProfileModal, setEditProfileModal]:any = useState(false);
 
     interface editInterface {
         userId: string,

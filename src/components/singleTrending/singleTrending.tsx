@@ -8,10 +8,10 @@ const SingleTrending = (props: any) => {
 
     const {user} = useContext(AuthContext);
 
-    const [trendingModal, setTrendingModal] = useState(false);
-    const [likes, setLikes] = useState(props.likes.length)
-    const [numberComments, setNumberComments] = useState(props.comments.length);
-    const [commentInMaking, setCommentInMaking] = useState("")
+    const [trendingModal, setTrendingModal] = useState<boolean>(false);
+    const [likes, setLikes] = useState<number>(props.likes.length)
+    const [numberComments, setNumberComments] = useState<number>(props.comments.length);
+    const [commentInMaking, setCommentInMaking] = useState<string>("")
 
     return (
         <div className="single-tutorial" onClick={() => setTrendingModal(true)}>

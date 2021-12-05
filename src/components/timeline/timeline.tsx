@@ -4,9 +4,20 @@ import axios from "axios";
 import SingleTimeline from "../singleTimeline/singleTimeline";
 import {AuthContext} from "../../context/AuthContext";
 
+interface postInterface {
+    _id: string,
+    comments: [string],
+    content: string,
+    createdAt: string,
+    likes: [string],
+    title: string,
+    userId: string,
+    username: string
+}
+
 const Timeline = ({updatePosts, setUpdatePosts}: any) => {
 
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState<postInterface[]>([]);
 
     const {user} = useContext(AuthContext)
 
