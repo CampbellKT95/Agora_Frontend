@@ -1,12 +1,22 @@
 .tutorials {
-  border-top: 1px solid black;
   position: relative;
 }
 
 .tutorials-title {
   text-align: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
   width: 30%;
+  margin: 1rem auto 1rem auto;
+}
+
+.tutorials h4 {
+  color: black;
+  font-size: 1.25rem;
+}
+
+.tutorials p {
+  text-align: start;
+  width: 90%;
   margin: 1rem auto 1rem auto;
 }
 
@@ -19,12 +29,10 @@
   .tutorials {
     grid-column: 3;
     grid-row: 1 / -1;
-    border-left: 1px solid black;
   }
 
   .tutorials-title {
     margin: 5% auto 3% auto;
-    border-bottom: 1px solid black;
     padding-bottom: 5%;
     width: 40%;
     font-size: 1.5rem;

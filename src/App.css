@@ -2,14 +2,22 @@
 
 h1 {
   font-family: "Nanum Myeongjo", serif;
+  color: #0076bd;
+}
+
+h4 {
+  font-family: "Nanum Myeongjo", serif;
+  color: #0076bd;
 }
 
 p {
   font-family: "Montserrat", sans-serif;
+  color: white;
 }
 
 body {
   margin: 0;
+  background-color: rgb(32, 28, 28);
 }
 
 .main-container {
