@@ -1,4 +1,5 @@
 .sidebar {
+  display: none;
 }
 
 .friends-title {
@@ -7,6 +8,7 @@
   padding-bottom: 5%;
   width: 40%;
   color: #0076bd;
+  display: none;
 }
 
 .more-friends {
@@ -15,17 +17,20 @@
 
 .mobile-sidebar-hidden {
   display: none;
+  overflow: hidden;
 }
 
 .mobile-sidebar-shown {
   text-align: center;
   display: inline-block;
   border-radius: 0 5px 5px 0;
-  margin: -2.5rem auto auto auto;
+  box-shadow: 0px 0px 5px 2px #005a92;
+  margin: -4rem auto auto auto;
   width: 6rem;
   position: absolute;
   background-color: #0076bd;
   color: white;
+  overflow: hidden;
 }
 
 .friends-list {
@@ -36,6 +41,7 @@
 .friend-name {
   padding-bottom: 0.5rem;
   margin: 1rem auto 1rem auto;
+  color: black;
 }
 
 .friend-name:hover {
@@ -46,20 +52,22 @@
 .small-friends-arrow {
   transition: all linear 0.2s;
   position: absolute;
-  margin: -5rem auto auto auto;
+  margin: -7rem auto auto auto;
   border: none;
   background-color: transparent;
   cursor: pointer;
+  color: #0076bd;
 }
 
 .small-friends-arrow-clicked {
   transition: all linear 0.2s;
   position: absolute;
   transform: rotate(180deg);
-  margin: -5rem auto auto auto;
+  margin: -7rem auto auto auto;
   border: none;
   background-color: transparent;
   cursor: pointer;
+  color: #0076bd;
 }
 
 .following-name {
@@ -91,6 +99,10 @@
 
   .mobile-sidebar-shown {
     display: none;
+  }
+
+  .friends-title {
+    display: inline-block;
   }
 }
 

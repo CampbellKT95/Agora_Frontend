@@ -4,7 +4,6 @@ import {useNavigate} from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
-import List from '@mui/material/List';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const Following = () => {
@@ -58,7 +57,7 @@ const Following = () => {
 
         {/* mobile-sidebar */}
         <aside className={`${toggleMobileFriends ? "mobile-sidebar-shown" : "mobile-sidebar-hidden"}`}>
-            <List>
+            <div>
                 {friendsNames.map((friend: any) => {
                     return (
                 <div className="friends-list">
@@ -67,7 +66,7 @@ const Following = () => {
                 </div>
                     )
                 })}
-            </List>
+            </div>
         </aside>
     </>
 }
