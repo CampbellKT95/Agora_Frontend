@@ -36,7 +36,7 @@ const NavbarDropdown = ({setEditProfileModal}: any) => {
                     <ListItem disablePadding>
                         <ListItemButton>
                         <ListItemIcon className="dropdown-icons-position">
-                            <PersonIcon/>
+                            <PersonIcon className="dropdown-icon-color"/>
                             <span className="dropdown-friend-requests">1</span>
                         </ListItemIcon>
                         <ListItemText primary="Friends" />
@@ -46,7 +46,7 @@ const NavbarDropdown = ({setEditProfileModal}: any) => {
                     <ListItem disablePadding>
                         <ListItemButton>
                         <ListItemIcon className="dropdown-icons-position">
-                            <MessageIcon/>
+                            <MessageIcon className="dropdown-icon-color"/>
                             <span className="dropdown-messages">2</span>
                         </ListItemIcon>
                         <ListItemText primary="Messages" />
@@ -56,7 +56,7 @@ const NavbarDropdown = ({setEditProfileModal}: any) => {
                     <ListItem disablePadding>
                         <ListItemButton>
                         <ListItemIcon>
-                            <AccountCircleIcon />
+                            <AccountCircleIcon className="dropdown-icon-color"/>
                         </ListItemIcon>
                         <ListItemText primary="Account" onClick={() => navigate("/profile")}/>
                         </ListItemButton>
@@ -65,7 +65,7 @@ const NavbarDropdown = ({setEditProfileModal}: any) => {
                     <ListItem disablePadding>
                         <ListItemButton>
                         <ListItemIcon>
-                            <SettingsIcon />
+                            <SettingsIcon className="dropdown-icon-color"/>
                         </ListItemIcon>
                         <ListItemText primary="Settings" onClick={() => {
                             setEditProfileModal(true)
@@ -76,7 +76,7 @@ const NavbarDropdown = ({setEditProfileModal}: any) => {
                     <ListItem disablePadding>
                         <ListItemButton>
                         <ListItemIcon>
-                            <LogoutIcon />
+                            <LogoutIcon className="dropdown-icon-color"/>
                         </ListItemIcon>
                         <ListItemText primary="Logout" onClick={() => navigate("/")}/>
                         </ListItemButton>

@@ -8,6 +8,7 @@
   transition: all 0.2s linear;
   font-size: 2.4rem;
   cursor: pointer;
+  margin-top: 0.45rem;
 }
 
 .dropdown-bars:hover {
@@ -19,11 +20,12 @@
   transform: rotate(90deg);
   font-size: 2.4rem;
   cursor: pointer;
+  margin-top: 0.45rem;
 }
 
 .dropdown-menu-container {
   position: absolute;
-  margin: 27% auto auto -6rem;
+  margin: 38% auto auto -6rem;
   background-color: white;
 }
 
@@ -37,12 +39,16 @@
 
 .dropdown-friend-requests {
   position: absolute;
-  margin: auto auto auto 25px;
+  margin: auto auto auto 30px;
 }
 
 .dropdown-messages {
   position: absolute;
-  margin: auto auto auto 25px;
+  margin: auto auto auto 30px;
+}
+
+.dropdown-icon-color {
+  color: #0076bd;
 }
 
 @media screen and (min-width: 600px) and (max-width: 799px) {
@@ -52,7 +58,7 @@
 
   .dropdown-menu-container {
     position: absolute;
-    margin: 1.75rem auto auto -5rem;
+    margin: 35% auto auto -5rem;
   }
 }
 

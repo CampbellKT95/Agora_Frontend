@@ -5,7 +5,6 @@ import { AuthContext } from "../../context/AuthContext";
 import NavbarDropdown from "../navbar-dropdown/navbar-dropdown";
 import axios from "axios";
 
-import SchoolIcon from '@mui/icons-material/School';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import MessageIcon from '@mui/icons-material/Message';
@@ -72,8 +71,9 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="logo" onClick={() => navigate("/timeline")}>
-                <SchoolIcon sx={{fontSize: 50}} className="logo-icon" />
-                <h1 className="logo-text">Agora</h1>
+                <img src="img/logo.png" alt="logo" className="logo-img"/>
+                {/* <SchoolIcon sx={{fontSize: 50}} className="logo-icon" />
+                <h1 className="logo-text">Agora</h1> */}
             </div>
 
             <div className="search">
