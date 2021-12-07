@@ -35,6 +35,7 @@
 }
 
 .search-bar {
+  position: relative;
   display: inline-block;
   margin: 5% auto auto auto;
   width: 70%;
@@ -50,10 +51,10 @@
 
 .search-bar-btn {
   position: absolute;
-  margin: 5% auto auto auto;
+  margin: 5% auto auto -1.15rem;
   border: none;
   background-color: transparent;
-  color: white;
+  color: #0076bd;
   cursor: pointer;
 }
 
@@ -173,7 +174,7 @@
 
   .search-bar-btn {
     position: absolute;
-    margin-top: 9%;
+    margin-top: 7%;
   }
 
   .navbar-icon-container {

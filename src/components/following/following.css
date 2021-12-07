@@ -89,6 +89,10 @@
     box-sizing: border-box;
   }
 
+  .friends-title {
+    display: inline-block;
+  }
+
   .sidebar-shown {
     display: none;
   }
@@ -114,6 +118,10 @@
     grid-row: 1 / -1;
     text-align: center;
     box-sizing: border-box;
+  }
+
+  .friends-title {
+    display: inline-block;
   }
 
   .sidebar-shown {

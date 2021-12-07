@@ -72,12 +72,10 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="logo" onClick={() => navigate("/timeline")}>
                 <img src="img/logo.png" alt="logo" className="logo-img"/>
-                {/* <SchoolIcon sx={{fontSize: 50}} className="logo-icon" />
-                <h1 className="logo-text">Agora</h1> */}
             </div>
 
             <div className="search">
-                    <input type="text" placeholder="Searching for someone?" className="search-bar"
+                    <input type="text" placeholder="Search" className="search-bar"
                     value={search} onChange={(e:any) => setSearch(e.target.value)}/>
                     <button onClick={handleSearchSubmit} className="search-bar-btn"><SearchIcon 
                     sx={{fontSize: 30}} className="search-bar-btn" /></button>
