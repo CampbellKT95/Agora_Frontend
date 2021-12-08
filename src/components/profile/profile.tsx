@@ -1,5 +1,6 @@
 import "./profile.css";
 import {useState, useEffect, useContext} from "react";
+import {useLocation} from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import SingleTimeline from "../singleTimeline/singleTimeline";
@@ -12,19 +13,24 @@ const Profile = () => {
 
     const {user} = useContext(AuthContext)
 
+    const location = useLocation();
+
     const [profilePageUser, setProfilePageUser] = useState(user)
 
-    const profileUrl = window.location.pathname;
-    const paramId = profileUrl.toString().slice(9)
+    // const profileUrl = window.location.pathname;
+    // const paramId = profileUrl.toString().slice(9)
 
     useEffect(() => {
+        const profileUrl = window.location.pathname;
+        const paramId = profileUrl.toString().slice(9)
+
         const fetchPersonalPage = async () => {
             const {data} = await axios.get("http://localhost:5000/api/users/" + paramId)
             setProfilePageUser(data);
         };
         fetchPersonalPage();
 
-    }, [])
+    }, [location])
 
     const [personalPosts, setPersonalPosts] = useState([]);
     const [editModal, setEditModal] = useState(false);
@@ -32,14 +38,14 @@ const Profile = () => {
     const [editedPostId, setEditedPostId] = useState("");
 
     const fetchPosts = async () => {
-    try {
-        const personalPostsResponse = await axios.get("http://localhost:5000/api/posts/" + profilePageUser._id + "/personal");
+        try {
+            const personalPostsResponse = await axios.get("http://localhost:5000/api/posts/" + profilePageUser._id + "/personal");
 
-        setPersonalPosts(personalPostsResponse.data);
-    
-        } catch (err) {
-            console.log(err)
-        }
+            setPersonalPosts(personalPostsResponse.data);
+        
+            } catch (err) {
+                console.log(err)
+            } 
     };
 
     useEffect(() => {

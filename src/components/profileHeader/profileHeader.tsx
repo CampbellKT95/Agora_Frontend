@@ -1,5 +1,6 @@
 import "./profileHeader.css";
 import {useContext, useEffect, useState} from "react";
+import {useLocation} from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
@@ -18,6 +19,8 @@ const ProfileHeader = () => {
 
     const {user} = useContext(AuthContext);
     const [profilePageUser, setProfilePageUser] = useState<userInterface>(user)
+
+    const location = useLocation();
 
     const profileUrl = window.location.pathname;
     const paramId = profileUrl.toString().slice(9)
@@ -46,7 +49,7 @@ const ProfileHeader = () => {
         };
         fetchPersonalPage();
 
-    }, [])
+    }, [location])
 
     const followUser = async () => {
         const {data} = await axios.put("http://localhost:5000/api/users/" + profilePageUser._id + "/follow", {userId: user._id});

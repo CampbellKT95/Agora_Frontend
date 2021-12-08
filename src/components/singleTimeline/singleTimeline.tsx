@@ -10,11 +10,11 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 const SingleTimeline = (props: any) => {
 
-    const [displayContent, setDisplayContent] = useState(false);
-    const [likes, setLikes] = useState(props.likes.length)
-    const [numberComments, setNumberComments] = useState(props.comments.length);
-    const [commentsModal, setCommentsModal] = useState(false);
-    const [commentInMaking, setCommentInMaking] = useState("")
+    const [displayContent, setDisplayContent] = useState<boolean>(false);
+    const [likes, setLikes] = useState<number>(props.likes.length)
+    const [numberComments, setNumberComments] = useState<number>(props.comments.length);
+    const [commentsModal, setCommentsModal] = useState<boolean>(false);
+    const [commentInMaking, setCommentInMaking] = useState<string>("")
 
     const {user} = useContext(AuthContext);
 
