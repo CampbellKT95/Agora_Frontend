@@ -19,8 +19,6 @@ const ProfileHeader = () => {
     const {user} = useContext(AuthContext);
     const [profilePageUser, setProfilePageUser] = useState<userInterface>(user)
 
-    console.log(user);
-
     const profileUrl = window.location.pathname;
     const paramId = profileUrl.toString().slice(9)
 
@@ -30,7 +28,6 @@ const ProfileHeader = () => {
 
     useEffect(() => {
         const fetchPersonalPage = async () => {
-            console.log(paramId)
             const {data} = await axios.get("http://localhost:5000/api/users/" + paramId)
 
             setProfilePageUser(data);

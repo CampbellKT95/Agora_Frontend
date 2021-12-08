@@ -12,19 +12,18 @@ const Following = () => {
 
     const navigate = useNavigate();
 
-    const [friendsNames, setFriendsNames] = useState<Array<string>>([]);
+    const [friendsNames, setFriendsNames] = useState<any>([]);
 
-    const fetchFriends = () => {
-        const friendsList: Array<string> = []
+    const fetchFriends = async () => {
 
-        user.following.map( async (friend: string) => {
-            const {data} = await axios.get("http://localhost:5000/api/users/" + friend);
-            friendsList.push(data);
-            return friendsList;
-        });
-
-        setFriendsNames(friendsList);
-    }
+        const friendsList = await Promise.all(
+        user.following.map(async(friend: string) => {
+            const {data} = await axios.get("http://localhost:5000/api/users/" + friend)
+            return data
+        })
+    );
+        setFriendsNames(friendsList)
+}
 
     useEffect(() => {
         fetchFriends();
