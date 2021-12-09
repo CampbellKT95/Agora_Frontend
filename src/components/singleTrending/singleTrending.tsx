@@ -37,6 +37,16 @@ const SingleTrending = (props: any) => {
             <div className="single-tutorial" onClick={() => setTrendingCommentModal(true)}>
                 <h4 className="tutorial-title">{props.title}</h4>
                 <p className="tutorial-description">{props.description}</p>
+                <div className="trending-icon-container">
+                    <div className="trending-like-container">
+                        <RecommendIcon />
+                        <p className="trending-likes-position">{likes}</p>
+                    </div>
+                    <div className="trending-comment-container">
+                        <ForumIcon />
+                        <p className="trending-comments-position">{numberComments}</p>
+                    </div>
+                </div>
             </div>
 
             <Backdrop sx={{color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1}} open={trendingCommentModal}>

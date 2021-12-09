@@ -7,6 +7,7 @@
   box-shadow: 2px 2px 2px 0px black;
   background-color: #0076bd;
   color: white;
+  position: relative;
 }
 
 .single-tutorial:hover {
@@ -21,17 +22,39 @@
 
 .tutorial-description {
   margin: 0.5 auto auto auto;
-  padding: 0 0 1rem 0;
+  padding: 0 0 0 0;
 }
 
 @media screen and (min-width: 800px) {
   .hide-trending-modal {
     display: hide;
+    margin: 0 auto 0 auto;
   }
 
   .trending-modal {
     display: inline-block;
     position: absolute;
     background-color: #0076bd;
+  }
+
+  .trending-icon-container {
+    display: flex;
+    margin-left: 0.25rem;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .trending-like-container {
+    display: flex;
+  }
+
+  .trending-likes-position {
+  }
+
+  .trending-comment-container {
+    display: flex;
+  }
+
+  .trending-comments-position {
   }
 }
