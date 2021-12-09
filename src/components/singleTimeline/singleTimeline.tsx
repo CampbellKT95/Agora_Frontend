@@ -44,7 +44,9 @@ const SingleTimeline = (props: any) => {
             await axios.put("/posts/" + props.id + "/comment", 
             { author: user.username, comment: commentInMaking})
             setCommentsModal(false)
+            props.setUpdateComments(true)
             setNumberComments(numberComments + 1)
+            props.setUpdateComments(false)
 
         } catch (err) {
             console.log(err)

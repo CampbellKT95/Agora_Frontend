@@ -4,7 +4,6 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 import Backdrop from '@mui/material/Backdrop';
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import RecommendIcon from '@mui/icons-material/Recommend';
 import ForumIcon from '@mui/icons-material/Forum';
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -25,8 +24,9 @@ const SingleTrending = (props: any) => {
         await axios.put("/posts/" + props.id + "/comment", 
         { author: user.username, comment: commentInMaking})
         setTrendingCommentModal(false)
+        props.setUpdatedComments(true);
         setNumberComments(numberComments + 1)
-
+        props.setUpdatedComments(false);
     } catch (err) {
         console.log(err)
     }

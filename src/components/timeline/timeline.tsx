@@ -16,10 +16,11 @@ interface postInterface {
 }
 
 const Timeline = ({updatePosts, setUpdatePosts}: any) => {
+    const {user} = useContext(AuthContext)
 
     const [posts, setPosts] = useState<postInterface[]>([]);
 
-    const {user} = useContext(AuthContext)
+    const [updateComments, setUpdateComments] = useState<boolean>(false)
 
     const fetchPosts = async () => {
         const res = await axios.get("http://localhost:5000/api/posts/timeline/" + user._id);
@@ -30,7 +31,7 @@ const Timeline = ({updatePosts, setUpdatePosts}: any) => {
     useEffect(() => {
         fetchPosts();
 
-    }, [user._id, updatePosts])
+    }, [user._id, updatePosts, updateComments])
 
     useEffect(() => {
         setUpdatePosts(false)
@@ -41,7 +42,7 @@ const Timeline = ({updatePosts, setUpdatePosts}: any) => {
         <section className="timeline">
             {posts.map((item: any) => {
                 return <SingleTimeline title={item.title} content={item.content}
-                comments={item.comments} likes={item.likes} id={item._id} userId={item.userId} key={item.userId}
+                comments={item.comments} likes={item.likes} id={item._id} userId={item.userId} key={item.userId} setUpdateComments={setUpdateComments}
                 />
             })}
         </section>
