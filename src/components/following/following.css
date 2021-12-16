@@ -122,6 +122,8 @@
 
   .friends-title {
     display: inline-block;
+    font-size: 2rem;
+    width: 65%;
   }
 
   .sidebar-shown {

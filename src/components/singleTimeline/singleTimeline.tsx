@@ -75,7 +75,9 @@ const SingleTimeline = (props: any) => {
                     <ForumIcon className="comments-icon" onClick={() => setCommentsModal(true)}/>
                     <p className="number-of-comments">{numberComments}</p>
                 </div>
-
+                <p className="timeline-username">
+                    {props.username}
+                </p>
                 
                 <Backdrop sx={{color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1}} open={commentsModal}>
                     <section className="comments-modal-container">
@@ -84,7 +86,8 @@ const SingleTimeline = (props: any) => {
                         <form onSubmit={(e) => handleCommentsSubmit(e)} className="comments-form">
                             <textarea className="comment-box"
                             placeholder="What do you have to say?"
-                            value={commentInMaking} onChange={(e) => setCommentInMaking(e.target.value)} />
+                            value={commentInMaking} onChange={(e) => setCommentInMaking(e.target.value)} 
+                            rows={5} />
                             <button type="submit">Send</button>
                         </form>
                         <section className="comments-section">

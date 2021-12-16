@@ -33,7 +33,7 @@ const Trending = () => {
 
     return (
         <div className="tutorials">
-            <h1 className="tutorials-title">Trending</h1>
+            <h2 className="tutorials-title">Trending</h2>
             <section className="tutorials-container">
                 {trendingPosts.map((post: any) => {
                     return <SingleTrending title={post.title} likes={post.likes}

@@ -56,7 +56,8 @@ const SingleTrending = (props: any) => {
                     <form onSubmit={(e) => handleCommentsSubmit(e)} className="comments-form">
                         <textarea className="comment-box"
                         placeholder="What do you have to say?"
-                        value={commentInMaking} onChange={(e) => setCommentInMaking(e.target.value)} />
+                        value={commentInMaking} onChange={(e) => setCommentInMaking(e.target.value)} 
+                        rows={5}/>
                         <button type="submit">Send</button>
                     </form>
                     <section className="comments-section">

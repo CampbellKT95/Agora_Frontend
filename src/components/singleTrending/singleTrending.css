@@ -1,6 +1,6 @@
 .single-tutorial {
   margin: 0.75rem auto 0.75rem auto;
-  max-width: 80%;
+  max-width: 70%;
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
@@ -16,16 +16,46 @@
 }
 
 .tutorial-title {
-  margin: 0.5rem auto auto auto;
+  margin: 0.5rem auto auto 0.5rem;
+  text-align: left;
   padding-top: 0.5rem;
+  font-size: 1.5rem !important;
 }
 
 .tutorial-description {
-  margin: 0.5 auto auto auto;
-  padding: 0 0 0 0;
+  margin: 0.5rem auto auto auto;
+  padding-left: 0;
+  max-height: 3rem;
+  overflow: hidden;
+}
+
+.trending-icon-container {
+  display: flex;
+  margin-left: 0.25rem;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.trending-like-container {
+  display: flex;
+}
+
+.trending-likes-position {
+}
+
+.trending-comment-container {
+  display: flex;
+  max-width: 90vh;
+}
+
+.trending-comments-position {
 }
 
 @media screen and (min-width: 800px) {
+  .single-tutorial {
+    width: 20rem;
+  }
+
   .hide-trending-modal {
     display: hide;
     margin: 0 auto 0 auto;
@@ -39,7 +69,8 @@
 
   .trending-icon-container {
     display: flex;
-    margin-left: 0.25rem;
+    margin-left: 7rem;
+    margin-top: 2rem;
     flex-direction: row;
     gap: 1.5rem;
   }

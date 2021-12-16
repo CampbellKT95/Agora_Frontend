@@ -42,7 +42,7 @@ const Timeline = ({updatePosts, setUpdatePosts}: any) => {
         <section className="timeline">
             {posts.map((item: any) => {
                 return <SingleTimeline title={item.title} content={item.content}
-                comments={item.comments} likes={item.likes} id={item._id} userId={item.userId} key={item.userId} setUpdateComments={setUpdateComments}
+                comments={item.comments} likes={item.likes} id={item._id} userId={item.userId} key={item.userId} setUpdateComments={setUpdateComments} username={item.username}
                 />
             })}
         </section>

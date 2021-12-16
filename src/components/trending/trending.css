@@ -1,5 +1,6 @@
 .tutorials {
   position: relative;
+  padding-bottom: 1rem;
 }
 
 .tutorials-title {
@@ -7,6 +8,7 @@
   border-bottom: 1px solid white;
   width: 30%;
   margin: 1rem auto 1rem auto;
+  color: #0076bd;
 }
 
 .tutorials h4 {
@@ -33,8 +35,8 @@
 
   .tutorials-title {
     margin: 5% auto 3% auto;
-    padding-bottom: 5%;
-    width: 40%;
-    font-size: 1.5rem;
+    padding-bottom: 10px;
+    width: 45%;
+    font-size: 2rem;
   }
 }
