@@ -13,11 +13,10 @@
   background-color: rgba(0, 118, 189, 0.2);
 }
 
-.trending-title {
+.trending-post-title {
   margin: 0.5rem auto auto 0.5rem;
   text-align: left;
   padding-top: 0.5rem;
-  font-size: 1.25rem !important;
 }
 
 .trending-description {
@@ -52,6 +51,11 @@
   .single-trending {
     max-width: 95%;
     margin: 0 auto 0 auto;
+  }
+
+  .trending-description {
+    margin: 1rem auto 1.5rem 0.5rem;
+    text-align: start;
   }
 
   .hide-trending-modal {

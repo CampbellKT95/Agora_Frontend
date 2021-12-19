@@ -1,9 +1,9 @@
-.tutorials {
+.trending {
   position: relative;
   padding-bottom: 1rem;
 }
 
-.tutorials-title {
+.trending-title {
   text-align: center;
   border-bottom: 1px solid white;
   width: 30%;
@@ -11,25 +11,25 @@
   color: #0076bd;
 }
 
-.tutorials h4 {
+.trending h4 {
   color: black;
   font-size: 1.25rem;
   color: #0076bd;
 }
 
-.tutorials p {
+/* .trending p {
   text-align: start;
   width: 90%;
   margin: 1rem auto 1rem auto;
-}
+} */
 
-.more-tutorials {
+.more-trending {
   text-align: center;
   cursor: pointer;
 }
 
 @media screen and (min-width: 800px) {
-  .tutorials {
+  .trending {
     grid-column: 3;
     grid-row: 1 / -1;
     position: sticky;
@@ -37,13 +37,13 @@
     margin-left: -1rem;
   }
 
-  .tutorials-container {
+  .trending-container {
     background-color: rgba(32, 28, 28, 0.1);
     width: 100%;
     border-radius: 5px 0 0 5px;
   }
 
-  .tutorials-title {
+  .trending-title {
     margin: 1rem auto 3% 1.25rem;
     padding-bottom: 10px;
     width: 80%;

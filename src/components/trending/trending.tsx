@@ -32,9 +32,9 @@ const Trending = () => {
     }, [updatedComments]);
 
     return (
-        <div className="tutorials">
-            <h2 className="tutorials-title">Trending</h2>
-            <section className="tutorials-container">
+        <div className="trending">
+            <h2 className="trending-title">Trending</h2>
+            <section className="trending-container">
                 {trendingPosts.map((post: any) => {
                     return <SingleTrending title={post.title} likes={post.likes}
                     description={post.content} key={post._id} id={post._id} comments={post.comments} setUpdatedComments={setUpdatedComments}/>
