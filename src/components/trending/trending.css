@@ -31,12 +31,21 @@
   .tutorials {
     grid-column: 3;
     grid-row: 1 / -1;
+    position: sticky;
+    top: 0;
+  }
+
+  .tutorials-container {
+    background-color: #0076bd;
+    width: 100%;
+    border-radius: 5px 0 0 5px;
   }
 
   .tutorials-title {
-    margin: 5% auto 3% auto;
+    margin: 1rem auto 3% auto;
     padding-bottom: 10px;
     width: 45%;
     font-size: 2rem;
+    color: #0076bd;
   }
 }

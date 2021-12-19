@@ -20,3 +20,15 @@
 .load-more-timeline:hover {
   opacity: 0.8;
 }
+
+@media screen and (min-width: 800px) and (max-width: 1199px) {
+  .timeline {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .timeline {
+    width: 70%;
+  }
+}
