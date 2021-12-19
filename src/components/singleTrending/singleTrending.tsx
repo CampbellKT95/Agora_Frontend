@@ -34,9 +34,9 @@ const SingleTrending = (props: any) => {
 
     return (
         <>
-            <div className="single-tutorial" onClick={() => setTrendingCommentModal(true)}>
-                <h4 className="tutorial-title">{props.title}</h4>
-                <p className="tutorial-description">{props.description}</p>
+            <div className="single-trending" onClick={() => setTrendingCommentModal(true)}>
+                <h4 className="trending-title">{props.title}</h4>
+                <p className="trending-description">{props.description}</p>
                 <div className="trending-icon-container">
                     <div className="trending-like-container">
                         <RecommendIcon />

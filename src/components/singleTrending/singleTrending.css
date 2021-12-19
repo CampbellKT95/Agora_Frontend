@@ -1,4 +1,4 @@
-.single-tutorial {
+.single-trending {
   margin: 0.75rem auto 0.75rem auto;
   max-width: 70%;
   border-radius: 5px;
@@ -9,18 +9,18 @@
   position: relative;
 }
 
-.single-tutorial:hover {
+.single-trending:hover {
   background-color: rgba(0, 118, 189, 0.2);
 }
 
-.tutorial-title {
+.trending-title {
   margin: 0.5rem auto auto 0.5rem;
   text-align: left;
   padding-top: 0.5rem;
   font-size: 1.25rem !important;
 }
 
-.tutorial-description {
+.trending-description {
   margin: 0.5rem auto auto auto;
   padding-left: 0;
   overflow: hidden;
@@ -49,7 +49,7 @@
 }
 
 @media screen and (min-width: 800px) {
-  .single-tutorial {
+  .single-trending {
     max-width: 95%;
     margin: 0 auto 0 auto;
   }
