@@ -20,6 +20,12 @@ const Navbar = () => {
 
     const [search, setSearch] = useState("");
 
+    const [iconDescription, setIconDescription] = useState({
+        profile: false,
+        edit: false,
+        logout: false
+    });
+
     const handleSearchSubmit = async (e: any) => {
         e.preventDefault();
         const {data} = await axios.get("http://localhost:5000/api/users/find/" + search);
@@ -81,11 +87,31 @@ const Navbar = () => {
 
             <div className="navbar-icon-container">
                 <AccountCircleIcon fontSize="large" className="navbar-icons"
-                onClick={() => navigate("/profile/" + user._id)}/>
+                onClick={() => navigate("/profile/" + user._id)}
+                onMouseEnter={() => {
+                    return setIconDescription({...iconDescription, profile: true})
+                }} onMouseLeave={() => {
+                    return setIconDescription({...iconDescription, profile: false})
+                }}/>
+                <span className={`${iconDescription.profile ? "icon-description-profile" : "icon-description-profile-hide"}`} id="profile-icon-description">profile</span>
+
                 <SettingsIcon fontSize="large" className="navbar-icons"
-                onClick={() => setEditProfileModal(true)}/>
+                onClick={() => setEditProfileModal(true)} onMouseEnter={() => {
+                    return setIconDescription({...iconDescription, edit: true})
+                }} onMouseLeave={() => {
+                    return setIconDescription({...iconDescription, edit: false})
+                }}/>
+                <span className={`${iconDescription.edit ? "icon-description-edit" : "icon-description-edit-hide"}`} id="edit-icon-description">edit</span>
+
                 <LogoutIcon fontSize="large" className="navbar-icons" 
-                onClick={() => navigate("/")} />
+                onClick={() => navigate("/")} 
+                onMouseEnter={() => {
+                    return setIconDescription({...iconDescription, logout: true})
+                }} onMouseLeave={(e:any) => {
+                    e.stopPropagation();
+                    return setIconDescription({...iconDescription, logout: false})
+                }}/>
+                <span className={`${iconDescription.logout ? "icon-description-logout" : "icon-description-logout-hide"}`} id="logout-icon-description">logout</span>
             </div>
 
             <Backdrop sx={{color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1}} open={editProfileModal}>

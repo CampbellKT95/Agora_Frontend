@@ -238,4 +238,28 @@
   .cancel-icon {
     margin-left: 93%;
   }
+
+  .icon-description-profile {
+    display: inline-block;
+  }
+
+  .icon-description-profile-hide {
+    display: none;
+  }
+
+  .icon-description-edit {
+    display: inline-block;
+  }
+
+  .icon-description-edit-hide {
+    display: none;
+  }
+
+  .icon-description-logout {
+    display: inline-block;
+  }
+
+  .icon-description-logout-hide {
+    display: none;
+  }
 }
