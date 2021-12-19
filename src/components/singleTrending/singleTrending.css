@@ -23,7 +23,6 @@
 .tutorial-description {
   margin: 0.5rem auto auto auto;
   padding-left: 0;
-  max-height: 3rem;
   overflow: hidden;
 }
 
@@ -51,7 +50,7 @@
 
 @media screen and (min-width: 800px) {
   .single-tutorial {
-    max-width: 80%;
+    max-width: 95%;
     margin: 0 auto 0 auto;
   }
 

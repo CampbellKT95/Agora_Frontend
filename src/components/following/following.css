@@ -77,7 +77,7 @@
 }
 
 .following-name:hover {
-  opacity: 0.7;
+  background-color: rgba(0, 118, 189, 0.2);
 }
 
 @media screen and (min-width: 800px) and (max-width: 1199px) {
@@ -144,9 +144,12 @@
   }
 
   .following-name {
+    width: 50%;
+    margin: auto;
     cursor: pointer;
   }
 
   .following-name:hover {
+    width: 70%;
   }
 }

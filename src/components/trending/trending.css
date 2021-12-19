@@ -43,9 +43,9 @@
   }
 
   .tutorials-title {
-    margin: 1rem auto 3% auto;
+    margin: 1rem auto 3% 1.25rem;
     padding-bottom: 10px;
-    width: 45%;
+    width: 80%;
     font-size: 2rem;
     color: #0076bd;
   }

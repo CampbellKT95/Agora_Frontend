@@ -35,26 +35,6 @@ const NavbarDropdown = ({setEditProfileModal}: any) => {
                 <List>
                     <ListItem disablePadding>
                         <ListItemButton>
-                        <ListItemIcon className="dropdown-icons-position">
-                            <PersonIcon className="dropdown-icon-color"/>
-                            <span className="dropdown-friend-requests">1</span>
-                        </ListItemIcon>
-                        <ListItemText primary="Friends" />
-                        </ListItemButton>
-                    </ListItem>
-                    <Divider />
-                    <ListItem disablePadding>
-                        <ListItemButton>
-                        <ListItemIcon className="dropdown-icons-position">
-                            <MessageIcon className="dropdown-icon-color"/>
-                            <span className="dropdown-messages">2</span>
-                        </ListItemIcon>
-                        <ListItemText primary="Messages" />
-                        </ListItemButton>
-                    </ListItem>
-                    <Divider />
-                    <ListItem disablePadding>
-                        <ListItemButton>
                         <ListItemIcon>
                             <AccountCircleIcon className="dropdown-icon-color"/>
                         </ListItemIcon>

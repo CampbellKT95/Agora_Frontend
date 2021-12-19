@@ -73,12 +73,6 @@
   color: rgba(0, 0, 0, 0.3);
 }
 
-.friend-requests {
-}
-
-.messages {
-}
-
 .edit-profile-modal {
   background-color: white;
   width: 80%;
@@ -192,26 +186,6 @@
     color: rgba(0, 0, 0, 0.3);
   }
 
-  .friend-requests {
-    background-color: white;
-    border-radius: 50%;
-    height: 17px;
-    width: 17px;
-    position: absolute;
-    margin: -5px auto auto -25px;
-    text-align: center;
-  }
-
-  .messages {
-    background-color: white;
-    border-radius: 50%;
-    height: 17px;
-    width: 17px;
-    position: absolute;
-    margin: -5px auto auto -15px;
-    text-align: center;
-  }
-
   .cancel-icon {
     margin-left: 95%;
   }
@@ -255,26 +229,6 @@
   .navbar-icons {
     padding: 0 15px;
     margin: 0 auto 5% auto;
-  }
-
-  .friend-requests {
-    background-color: white;
-    border-radius: 50%;
-    height: 17px;
-    width: 17px;
-    position: absolute;
-    margin: -10px auto auto -25px;
-    text-align: center;
-  }
-
-  .messages {
-    background-color: white;
-    border-radius: 50%;
-    height: 17px;
-    width: 17px;
-    position: absolute;
-    margin: -10px auto auto -15px;
-    text-align: center;
   }
 
   .edit-profile-modal {

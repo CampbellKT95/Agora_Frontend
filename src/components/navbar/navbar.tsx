@@ -6,8 +6,6 @@ import NavbarDropdown from "../navbar-dropdown/navbar-dropdown";
 import axios from "axios";
 
 import SearchIcon from '@mui/icons-material/Search';
-import PersonIcon from '@mui/icons-material/Person';
-import MessageIcon from '@mui/icons-material/Message';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -31,8 +29,6 @@ const Navbar = () => {
     }
 
     const [editProfileModal, setEditProfileModal] = useState<boolean>(false);
-
-    // const [editProfileModal, setEditProfileModal]:any = useState(false);
 
     interface editInterface {
         userId: string,
@@ -84,10 +80,6 @@ const Navbar = () => {
             <NavbarDropdown setEditProfileModal={setEditProfileModal}/>
 
             <div className="navbar-icon-container">
-                <PersonIcon fontSize="large" className="navbar-icons" />
-                <span className="friend-requests">1</span>
-                <MessageIcon fontSize="large" className="navbar-icons"/>
-                <span className="messages">2</span>
                 <AccountCircleIcon fontSize="large" className="navbar-icons"
                 onClick={() => navigate("/profile/" + user._id)}/>
                 <SettingsIcon fontSize="large" className="navbar-icons"

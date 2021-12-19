@@ -59,7 +59,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr 0.5fr;
     width: 70%;
-    margin: 3rem auto auto auto;
+    margin: 0 auto auto auto;
   }
 }
 
