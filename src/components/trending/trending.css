@@ -14,6 +14,7 @@
 .tutorials h4 {
   color: black;
   font-size: 1.25rem;
+  color: #0076bd;
 }
 
 .tutorials p {
@@ -36,7 +37,7 @@
   }
 
   .tutorials-container {
-    background-color: #0076bd;
+    background-color: rgba(32, 28, 28, 0.1);
     width: 100%;
     border-radius: 5px 0 0 5px;
   }

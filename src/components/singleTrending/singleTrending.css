@@ -5,14 +5,12 @@
   text-align: center;
   cursor: pointer;
   /* box-shadow: 2px 2px 2px 0px black; */
-  background-color: #0076bd;
   color: white;
   position: relative;
 }
 
 .single-tutorial:hover {
-  background-color: #0076bd;
-  opacity: 0.8;
+  background-color: rgba(0, 118, 189, 0.2);
 }
 
 .tutorial-title {
@@ -70,8 +68,8 @@
 
   .trending-icon-container {
     display: flex;
-    margin-left: 7rem;
-    margin-top: 2rem;
+    margin-left: 0.75rem;
+    margin-top: 0;
     flex-direction: row;
     gap: 1.5rem;
   }
