@@ -1,7 +1,7 @@
-import "./timeline.css"
+import "./styles.css"
 import {useState, useEffect, useContext} from "react";
 import axios from "axios";
-import SingleTimeline from "../singleTimeline/singleTimeline";
+import SingleTimeline from "../singleTimeline/index";
 import {AuthContext} from "../../context/AuthContext";
 
 interface postInterface {

@@ -1,4 +1,4 @@
-import "./navbar-dropdown.css";
+import "./styles.css";
 import {useState, useContext} from "react";
 import {useNavigate} from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -9,8 +9,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import {FaBars} from "react-icons/fa";
-import PersonIcon from '@mui/icons-material/Person';
-import MessageIcon from '@mui/icons-material/Message';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -19,10 +17,10 @@ const NavbarDropdown = ({setEditProfileModal}: any) => {
 
     const {user} = useContext(AuthContext);
 
-    const [displayMenu, setDisplayMenu] = useState<boolean>(false);
-
     const navigate = useNavigate();
 
+    // dropdown menu state
+    const [displayMenu, setDisplayMenu] = useState<boolean>(false);
 
     return (
         <>

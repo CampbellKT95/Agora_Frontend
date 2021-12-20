@@ -1,8 +1,8 @@
-import "./navbar.css";
+import "./styles.css";
 import {useState, useContext} from "react";
 import {useNavigate} from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import NavbarDropdown from "../navbar-dropdown/navbar-dropdown";
+import NavbarDropdown from "../navbar-dropdown/index";
 import axios from "axios";
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -11,6 +11,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Backdrop from '@mui/material/Backdrop';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { ModalUnstyled } from "@mui/material";
+import { modalUnstyledClasses } from "@mui/core";
 
 const Navbar = () => {
 
@@ -18,22 +20,25 @@ const Navbar = () => {
 
     const {user} = useContext(AuthContext);
 
+    // input in searchbar for other users
     const [search, setSearch] = useState("");
-
-    const [iconDescription, setIconDescription] = useState({
-        profile: false,
-        edit: false,
-        logout: false
-    });
 
     const handleSearchSubmit = async (e: any) => {
         e.preventDefault();
         const {data} = await axios.get("http://localhost:5000/api/users/find/" + search);
         const foundUser = data[0];
 
-        navigate("/profile/" + foundUser.soughtId)
-    }
+        navigate("/profile/" + foundUser.soughtId);
+    };
 
+    // onHover state for icon descriptions in navbar
+    const [iconDescription, setIconDescription] = useState({
+        profile: false,
+        edit: false,
+        logout: false
+    });
+
+    // onClick state for modal to edit profile information
     const [editProfileModal, setEditProfileModal] = useState<boolean>(false);
 
     interface editInterface {
@@ -41,7 +46,7 @@ const Navbar = () => {
         username: string,
         languages: string,
         description: string
-    }
+    };
 
     const [editedInfo, setEditedInfo] = useState<editInterface>({
         userId: user._id,
@@ -50,7 +55,7 @@ const Navbar = () => {
         description: user.description
     });
 
-
+    // onChange for edit modal
     const handleProfileEdit = (e: any) => {
         
         if (e.target.name === "username") {
@@ -59,9 +64,10 @@ const Navbar = () => {
             setEditedInfo({...editedInfo, languages: e.target.value});
         } else {
             setEditedInfo({...editedInfo, description: e.target.value});
-        }
+        };
     };
 
+    // onSubmit for edit modal, sends to backend
     const handleEditSubmit = async (e: any) => {
         e.preventDefault();
 

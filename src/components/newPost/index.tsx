@@ -1,18 +1,18 @@
-import "./newPost.css";
+import "./styles.css";
 import {useState, useContext} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 const NewPost = ({setUpdatePosts}: any) => {
 
-    const {user} = useContext(AuthContext)
+    const {user} = useContext(AuthContext);
 
     const [newPost, setNewPost] = useState({
         title: "",
         content: "",
         userId: user._id,
         username: user.username
-    })
+    });
 
     const handleChange = (e: any) => {
         let changedInput = e.target.name;
@@ -20,8 +20,8 @@ const NewPost = ({setUpdatePosts}: any) => {
             setNewPost({...newPost, title: e.target.value})
         } else {
             setNewPost({...newPost, content: e.target.value})
-        }
-    }
+        };
+    };
 
     const handlePostSubmit = async (e: any) => {
         e.preventDefault();
@@ -32,8 +32,8 @@ const NewPost = ({setUpdatePosts}: any) => {
             content: "",
             userId: user._id,
             username: user.username
-        })
-    }
+        });
+    };
 
     return (
         <>

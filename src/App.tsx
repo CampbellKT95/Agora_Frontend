@@ -2,16 +2,15 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useState, useContext} from "react";
 import {AuthContext} from "./context/AuthContext";
-import Login from "./components/login/Login";
-import Navbar from "./components/navbar/navbar";
-import Header from "./components/header/header";
-import Following from "./components/following/following";
-import Trending from "./components/trending/trending";
-import NewPost from "./components/newPost/newPost";
-import Timeline from "./components/timeline/timeline";
-import Profile from "./components/profile/profile";
-import ProfileHeader from './components/profileHeader/profileHeader';
-
+import Login from "./components/login/index";
+import Navbar from "./components/navbar/index";
+import Header from "./components/header/index";
+import Following from "./components/following/index";
+import Trending from "./components/trending/index";
+import NewPost from "./components/newPost/index";
+import Timeline from "./components/timeline/index";
+import Profile from "./components/profile/index";
+import ProfileHeader from './components/profileHeader/index';
 
 function App() {
 

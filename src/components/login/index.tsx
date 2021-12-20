@@ -1,4 +1,4 @@
-import "./login.css";
+import "./styles.css";
 import Backdrop from '@mui/material/Backdrop';
 import {CircularProgress} from "@material-ui/core";
 import axios from "axios";
@@ -21,6 +21,7 @@ function Login() {
     password: "",
   });
 
+  // tracks user input for username & password of login
   const handleChange = (e: any) => {
     let changedField = e.target.id;
 
@@ -46,6 +47,7 @@ function Login() {
     }
   }
 
+  // create new user modal
   const [modal, setModal] = useState(false);
 
   const toggleModal = (e: any) => {
@@ -69,11 +71,12 @@ function Login() {
       setCreateAccount({...createAccount, createPassword: e.target.value})
     } else {
       setCreateAccount({...createAccount, createPassword2: e.target.value})
-    }
-  }
+    };
+  };
 
-  const [createError, setCreateError] = useState(false)
+  const [createError, setCreateError] = useState(false);
 
+  // sends user input to backend for creation of new account
   const handleCreateSubmit = async (e: any) => {
     e.preventDefault();
     try {
@@ -83,12 +86,12 @@ function Login() {
         
       } else {
         setCreateError(true);
-      }
+      };
 
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
   
   return (
     <div className="login">

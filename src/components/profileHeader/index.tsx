@@ -1,4 +1,4 @@
-import "./profileHeader.css";
+import "./styles.css";
 import {useContext, useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -13,44 +13,49 @@ interface userInterface {
     isAdmin: boolean,
     languages: string,
     username: string 
-}
+};
 
 const ProfileHeader = () => {
 
     const {user} = useContext(AuthContext);
-    const [profilePageUser, setProfilePageUser] = useState<userInterface>(user)
-
     const location = useLocation();
 
-    const profileUrl = window.location.pathname;
-    const paramId = profileUrl.toString().slice(9)
+    // page of the given user
+    const [profilePageUser, setProfilePageUser] = useState<userInterface>(user);
 
+    // grabs the given user id from url params
+    const profileUrl = window.location.pathname;
+    const paramId = profileUrl.toString().slice(9);
+
+    // tracks if the profile page is of the current user's or not
     const [ownPage, setOwnPage] = useState<boolean>(false);
 
+    // tracks if current user is already following the searched user
     const [isFollowing, setIsFollowing] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchPersonalPage = async () => {
-            const {data} = await axios.get("http://localhost:5000/api/users/" + paramId)
+            const {data} = await axios.get("http://localhost:5000/api/users/" + paramId);
 
             setProfilePageUser(data);
 
             if (paramId === user._id) {
-                setOwnPage(true)
-            }
+                setOwnPage(true);
+            };
 
             if (data.followers.includes(user._id)) {
             setIsFollowing(true);
 
         } else {
             setIsFollowing(false);
-        }
+        };
 
         };
         fetchPersonalPage();
 
-    }, [location])
+    }, [location]);
 
+    // adds current user id to searched user's following array
     const followUser = async () => {
         const {data} = await axios.put("http://localhost:5000/api/users/" + profilePageUser._id + "/follow", {userId: user._id});
 
@@ -59,8 +64,8 @@ const ProfileHeader = () => {
 
         } else {
             setIsFollowing(false);
-        }
-    }
+        };
+    };
 
     return(
         <section className="personal-header-section">

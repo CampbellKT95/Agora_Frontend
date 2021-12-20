@@ -1,6 +1,6 @@
-import "./trending.css";
+import "./styles.css";
 import {useState, useEffect} from "react";
-import SingleTrending from "../singleTrending/singleTrending";
+import SingleTrending from "../singleTrending/index";
 import axios from "axios";
 
 interface postInterface {
