@@ -4,7 +4,7 @@
 
 .friends-title {
   margin: 5% auto 3% auto;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--secondary-color);
   padding-bottom: 5%;
   width: 40%;
   color: var(--main-color);

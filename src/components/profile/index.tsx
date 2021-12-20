@@ -108,7 +108,9 @@ const Profile = () => {
     };
 
     return ( <section className="personal-profile-container">
-        <h1 className="personal-profile-header">View, Edit or Delete Your Posts</h1>
+        <h1 className="personal-profile-header">
+            {user._id === profilePageUser._id ? "View, Edit or Delete Your Posts" : ""}
+        </h1>
         <div className="personal-posts">
             
             {personalPosts.map((post: any) => {
