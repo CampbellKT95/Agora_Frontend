@@ -7,7 +7,7 @@
   border-bottom: 1px solid white;
   padding-bottom: 5%;
   width: 40%;
-  color: #0076bd;
+  color: var(--main-color);
   display: none;
 }
 
@@ -28,8 +28,8 @@
   margin: -4rem auto auto auto;
   width: 6rem;
   position: absolute;
-  background-color: #0076bd;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--secondary-color);
   overflow: hidden;
 }
 
@@ -51,24 +51,24 @@
 }
 
 .small-friends-arrow {
-  transition: all linear 0.2s;
+  transition: var(--transition);
   position: absolute;
   margin: -7rem auto auto auto;
   border: none;
   background-color: transparent;
   cursor: pointer;
-  color: #0076bd;
+  color: var(--main-color);
 }
 
 .small-friends-arrow-clicked {
-  transition: all linear 0.2s;
+  transition: var(--transition);
   position: absolute;
   transform: rotate(180deg);
   margin: -7rem auto auto auto;
   border: none;
   background-color: transparent;
   cursor: pointer;
-  color: #0076bd;
+  color: var(--main-color);
 }
 
 .following-name {

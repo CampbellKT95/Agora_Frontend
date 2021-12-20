@@ -26,14 +26,14 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
-  color: #0076bd;
+  color: var(--main-color);
 }
 
 .delete-btn {
   cursor: pointer;
   border: none;
   background-color: transparent;
-  color: #0076bd;
+  color: var(--main-color);
 }
 
 @media screen and (min-width: 800px) {
@@ -72,6 +72,6 @@
     cursor: pointer;
     border: none;
     background-color: transparent;
-    color: #0076bd;
+    color: var(--main-color);
   }
 }

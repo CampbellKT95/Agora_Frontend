@@ -2,9 +2,11 @@
 
 :root {
   --main-color: #0076bd;
-  --background-color: rgb(32, 28, 28);
+  --secondary-color: white;
+  --body-background-color: rgb(32, 28, 28);
   --serif: "Nanum Myeongjo", serif;
   --sans-serif: "Montserrat", sans-serif;
+  --transition: all linear 0.2s;
 }
 
 h1 {
@@ -24,7 +26,7 @@ p {
 
 body {
   margin: 0;
-  background-color: var(--background-color);
+  background-color: var(--body-background-color);
 }
 
 .main-container {

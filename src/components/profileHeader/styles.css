@@ -37,8 +37,8 @@
   width: 5rem;
   height: 2rem;
   font-size: 1.15rem;
-  background-color: #0076bd;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--secondary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -81,7 +81,7 @@
     margin: -7% auto 0 auto;
     max-width: 7rem;
     max-height: 7rem;
-    border: 3px solid white;
+    border: 3px solid var(--secondary-color);
     border-radius: 50%;
     overflow: hidden;
   }

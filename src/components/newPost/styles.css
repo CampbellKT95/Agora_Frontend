@@ -9,12 +9,12 @@
 .post-title {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #0076bd;
+  border-bottom: 1px solid var(--main-color);
   color: white;
   font-size: 1.5rem;
   margin: auto auto auto auto;
   width: 100%;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--sans-serif);
 }
 
 .post-title:focus {
@@ -23,13 +23,13 @@
 
 .post-content {
   background-color: transparent;
-  border: 1px solid #0076bd;
+  border: 1px solid var(--main-color);
   border-top: none;
-  color: white;
+  color: var(--secondary-color);
   font-size: 1.5rem;
   margin: auto auto 1rem auto;
   width: 100%;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--sans-serif);
 }
 
 .post-content:focus {
@@ -40,11 +40,11 @@
   width: 5rem;
   height: 3rem;
   margin: auto auto 1rem auto;
-  background-color: #0076bd;
+  background-color: var(--main-color);
   border: none;
   border-radius: 5px;
-  color: white;
-  font-family: "Montserrat", sans-serif;
+  color: var(--secondary-color);
+  font-family: var(--sans-serif);
   font-size: 1.2rem;
   cursor: pointer;
 }

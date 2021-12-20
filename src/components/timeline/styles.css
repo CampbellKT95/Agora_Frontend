@@ -5,10 +5,10 @@
 }
 
 .load-more-timeline {
-  background-color: #0076bd;
+  background-color: var(--sans-serif);
   border: none;
   border-radius: 5px;
-  color: white;
+  color: var(--secondary-color);
   height: 2.5rem;
   width: 4.5rem;
   font-size: 1.25rem;

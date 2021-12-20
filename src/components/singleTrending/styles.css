@@ -4,8 +4,7 @@
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
-  /* box-shadow: 2px 2px 2px 0px black; */
-  color: white;
+  color: var(--secondary-color);
   position: relative;
 }
 
@@ -36,15 +35,9 @@
   display: flex;
 }
 
-.trending-likes-position {
-}
-
 .trending-comment-container {
   display: flex;
   max-width: 90vh;
-}
-
-.trending-comments-position {
 }
 
 @media screen and (min-width: 800px) {
@@ -66,7 +59,7 @@
   .trending-modal {
     display: inline-block;
     position: absolute;
-    background-color: #0076bd;
+    background-color: var(--main-color);
   }
 
   .trending-icon-container {
@@ -81,13 +74,7 @@
     display: flex;
   }
 
-  .trending-likes-position {
-  }
-
   .trending-comment-container {
     display: flex;
-  }
-
-  .trending-comments-position {
   }
 }
