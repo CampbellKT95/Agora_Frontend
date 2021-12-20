@@ -1,23 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Nanum+Myeongjo:wght@800&display=swap");
 
+:root {
+  --main-color: #0076bd;
+  --background-color: rgb(32, 28, 28);
+  --serif: "Nanum Myeongjo", serif;
+  --sans-serif: "Montserrat", sans-serif;
+}
+
 h1 {
-  font-family: "Nanum Myeongjo", serif;
-  color: #0076bd;
+  font-family: var(--serif);
+  color: var(--main-color);
 }
 
 h4 {
-  font-family: "Nanum Myeongjo", serif;
-  color: #0076bd;
+  font-family: var(--serif);
+  color: var(--main-color);
 }
 
 p {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--sans-serif);
   color: white;
 }
 
 body {
   margin: 0;
-  background-color: rgb(32, 28, 28);
+  background-color: var(--background-color);
 }
 
 .main-container {

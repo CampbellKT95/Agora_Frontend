@@ -10,9 +10,12 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 const SingleTimeline = (props: any) => {
 
+    // displaying full post content (true) or just a short substring (false)
     const [displayContent, setDisplayContent] = useState<boolean>(false);
     const [likes, setLikes] = useState<number>(props.likes.length)
     const [numberComments, setNumberComments] = useState<number>(props.comments.length);
+
+    // displaing comment modal & tracking the onChange within
     const [commentsModal, setCommentsModal] = useState<boolean>(false);
     const [commentInMaking, setCommentInMaking] = useState<string>("")
 
@@ -104,7 +107,6 @@ const SingleTimeline = (props: any) => {
                     </section>
                 </Backdrop>
                 
-
                 <button className={`${displayContent ? "display-more-btn-clicked" : "display-more-btn"}`}
                 onClick={() => setDisplayContent(!displayContent)}>
                     <ArrowCircleDownIcon sx={{fontSize: 30}}/>
