@@ -44,7 +44,8 @@ const Profile = () => {
     //fetches posts of ONLY the desired 
     const fetchPosts = async () => {
         try {
-            const personalPostsResponse = await axios.get("http://localhost:5000/api/posts/" + profilePageUser._id + "/personal");
+            // const personalPostsResponse = await axios.get("http://localhost:5000/api/posts/" + profilePageUser._id + "/personal");
+            const personalPostsResponse = await axios.get("https://agora-backend-ktc.herokuapp.com/api/posts/" + profilePageUser._id + "/personal");
 
             setPersonalPosts(personalPostsResponse.data);
         
@@ -76,7 +77,9 @@ const Profile = () => {
 
         if (user._id === profilePageUser._id) {
             try {
-                await axios.put("http://localhost:5000/api/posts/" + editedPostId + "/update", {data: updatedPost});
+                // await axios.put("http://localhost:5000/api/posts/" + editedPostId + "/update", {data: updatedPost});
+                await axios.put("https://agora-backend-ktc.herokuapp.com/api/posts/" + editedPostId + "/update", {data: updatedPost});
+
 
                 setEditModal(false);
 
@@ -95,7 +98,8 @@ const Profile = () => {
 
         if (user._id === profilePageUser._id) {
             try {
-                await axios.delete("http://localhost:5000/api/posts/" + deletePostId + "/delete", {data: deleteData});
+                // await axios.delete("http://localhost:5000/api/posts/" + deletePostId + "/delete", {data: deleteData});
+                await axios.delete("https://agora-backend-ktc.herokuapp.com/api/posts/" + deletePostId + "/delete", {data: deleteData});
 
                 fetchPosts();
 
@@ -107,11 +111,12 @@ const Profile = () => {
         };
     };
 
-    return ( <section className="personal-profile-container">
+    return ( 
+    <main className="personal-profile-container">
         <h1 className="personal-profile-header">
             {user._id === profilePageUser._id ? "View, Edit or Delete Your Posts" : ""}
         </h1>
-        <div className="personal-posts">
+        <section className="personal-posts">
             
             {personalPosts.map((post: any) => {
                 return (<>
@@ -148,8 +153,8 @@ const Profile = () => {
                 )
             })}
 
-        </div>
         </section>
+    </main>
     )
 };
 

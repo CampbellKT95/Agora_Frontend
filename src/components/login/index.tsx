@@ -82,7 +82,8 @@ function Login() {
     try {
 
       if (createAccount.createPassword === createAccount.createPassword2) {
-        await axios.post("http://localhost:5000/api/auth/register", createAccount);
+        // await axios.post("http://localhost:5000/api/auth/register", createAccount);
+          await axios.post("https://agora-backend-ktc.herokuapp.com/api/auth/register", createAccount);
         
       } else {
         setCreateError(true);
@@ -94,14 +95,14 @@ function Login() {
   };
   
   return (
-    <div className="login">
+    <main className="login">
       <div className="title-container">
         <h1>Agora</h1>
         <p>Learn, grow, and</p>
         <p>share your stories</p>
         <img src="/img/login-img.png" alt="login-img" className="login-img" />
       </div>
-      <div className="login-container">
+      <section className="login-container">
         <form className="login-form" onSubmit={handleLoginSubmit}>
           <input
             placeholder="email"
@@ -138,6 +139,7 @@ function Login() {
             New? Create account
           </p>
         </form>
+
         <Backdrop sx={{color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1}} open={modal}>
           <section className="modal">
             <h1>Let's get you signed up!</h1>
@@ -188,8 +190,8 @@ function Login() {
             </form>
           </section>
         </Backdrop>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

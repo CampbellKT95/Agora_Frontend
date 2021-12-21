@@ -25,7 +25,8 @@ const Navbar = () => {
 
     const handleSearchSubmit = async (e: any) => {
         e.preventDefault();
-        const {data} = await axios.get("http://localhost:5000/api/users/find/" + search);
+        // const {data} = await axios.get("http://localhost:5000/api/users/find/" + search);
+        const {data} = await axios.get("https://agora-backend-ktc.herokuapp.com/api/users/find/" + search);
         const foundUser = data[0];
 
         navigate("/profile/" + foundUser.soughtId);
@@ -71,7 +72,8 @@ const Navbar = () => {
     const handleEditSubmit = async (e: any) => {
         e.preventDefault();
 
-        await axios.put("http://localhost:5000/api/users/" + user._id, editedInfo);
+        // await axios.put("http://localhost:5000/api/users/" + user._id, editedInfo);
+        await axios.put("https://agora-backend-ktc.herokuapp.com/api/users/" + user._id, editedInfo);
 
         setEditProfileModal(false);
     };

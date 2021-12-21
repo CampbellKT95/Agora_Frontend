@@ -25,7 +25,8 @@ const NewPost = ({setUpdatePosts}: any) => {
 
     const handlePostSubmit = async (e: any) => {
         e.preventDefault();
-        await axios.post("/posts", newPost);
+        // await axios.post("/posts", newPost);
+        await axios.post("https://agora-backend-ktc.herokuapp.com/posts", newPost);
         setUpdatePosts(true);
         setNewPost({
             title: "",

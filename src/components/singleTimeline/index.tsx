@@ -24,10 +24,10 @@ const SingleTimeline = (props: any) => {
     const handleLikes = async () => {
         try {
             await axios.put("/posts/" + props.id + "/like", {userId: user._id})
-
             let {data} = await axios.get("/posts/" + props.id)
+            // await axios.put("https://agora-backend-ktc.herokuapp.com/posts/" + props.id + "/like", {userId: user._id})
+            // let {data} = await axios.get("https://agora-backend-ktc.herokuapp.com/posts/" + props.id)
 
-            console.log(data);
 
             if (data.likes.includes(user._id)) {
                 setLikes(likes + 1);
@@ -44,8 +44,10 @@ const SingleTimeline = (props: any) => {
         e.preventDefault();
 
         try {
-            await axios.put("/posts/" + props.id + "/comment", 
-            { author: user.username, comment: commentInMaking})
+            // await axios.put("/posts/" + props.id + "/comment", 
+            // { author: user.username, comment: commentInMaking})
+            await axios.put("https://agora-backend-ktc.herokuapp.com/api/posts/" + props.id + "/comment", { author: user.username, comment: commentInMaking})
+
             setCommentsModal(false)
             props.setUpdateComments(true)
             setNumberComments(numberComments + 1)

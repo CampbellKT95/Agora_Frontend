@@ -21,8 +21,10 @@ const SingleTrending = (props: any) => {
     e.preventDefault();
 
     try {
-        await axios.put("/posts/" + props.id + "/comment", 
-        { author: user.username, comment: commentInMaking})
+        // await axios.put("/posts/" + props.id + "/comment", 
+        // { author: user.username, comment: commentInMaking})
+        await axios.put("https://agora-backend-ktc.herokuapp.com/api/posts/" + props.id + "/comment", { author: user.username, comment: commentInMaking})
+        
         setTrendingCommentModal(false)
         props.setUpdatedComments(true);
         setNumberComments(numberComments + 1)

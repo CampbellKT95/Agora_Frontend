@@ -23,7 +23,8 @@ const Timeline = ({updatePosts, setUpdatePosts}: any) => {
     const [updateComments, setUpdateComments] = useState<boolean>(false)
 
     const fetchPosts = async () => {
-        const res = await axios.get("http://localhost:5000/api/posts/timeline/" + user._id);
+        // const res = await axios.get("http://localhost:5000/api/posts/timeline/" + user._id);
+        const res = await axios.get("https://agora-backend-ktc.herokuapp.com/api/posts/timeline/" + user._id);
 
         setPosts(res.data);
     };
@@ -39,13 +40,13 @@ const Timeline = ({updatePosts, setUpdatePosts}: any) => {
 
 
     return (
-        <section className="timeline">
+        <main className="timeline">
             {posts.map((item: any) => {
                 return <SingleTimeline title={item.title} content={item.content}
                 comments={item.comments} likes={item.likes} id={item._id} userId={item.userId} key={item.userId} setUpdateComments={setUpdateComments} username={item.username}
                 />
             })}
-        </section>
+        </main>
     )
 }
 

@@ -19,7 +19,8 @@ const Following = () => {
 
         const friendsList = await Promise.all(
         user.following.map(async(friend: string) => {
-            const {data} = await axios.get("http://localhost:5000/api/users/" + friend);
+            // const {data} = await axios.get("http://localhost:5000/api/users/" + friend);
+            const {data} = await axios.get("https://agora-backend-ktc.herokuapp.com/api/users/" + friend);
             return data;
         })
     );
@@ -62,7 +63,7 @@ const Following = () => {
             <div>
                 {friendsNames.map((friend: any) => {
                     return (
-                <div className="friends-list">
+                <div className="friends-list">s
                     <h4 className="friend-name">{friend.username}</h4>
                     
                 </div>

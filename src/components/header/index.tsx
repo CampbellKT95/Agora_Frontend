@@ -6,7 +6,7 @@ const Header = () => {
     const {user} = useContext(AuthContext);
 
     return(
-        <section className="personal-header-section">
+        <header className="personal-header-section">
             <div className="header-personal">
                 <div className="profile-personal-detail">
                     <h1>{user.username}</h1>
@@ -16,7 +16,7 @@ const Header = () => {
                     <p className="profile-description">{user.description}</p>
                 </div>
             </div>
-        </section>
+        </header>
     )
 }
 

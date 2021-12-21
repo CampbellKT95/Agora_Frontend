@@ -35,7 +35,8 @@ const ProfileHeader = () => {
 
     useEffect(() => {
         const fetchPersonalPage = async () => {
-            const {data} = await axios.get("http://localhost:5000/api/users/" + paramId);
+            // const {data} = await axios.get("http://localhost:5000/api/users/" + paramId);
+            const {data} = await axios.get("https://agora-backend-ktc.herokuapp.com/api/users/" + paramId);
 
             setProfilePageUser(data);
 
@@ -57,7 +58,8 @@ const ProfileHeader = () => {
 
     // adds current user id to searched user's following array
     const followUser = async () => {
-        const {data} = await axios.put("http://localhost:5000/api/users/" + profilePageUser._id + "/follow", {userId: user._id});
+        // const {data} = await axios.put("http://localhost:5000/api/users/" + profilePageUser._id + "/follow", {userId: user._id});
+        const {data} = await axios.put("https://agora-backend-ktc.herokuapp.com/api/users/" + profilePageUser._id + "/follow", {userId: user._id});
 
         if (data.followers.includes(user._id)) {
             setIsFollowing(true);
@@ -68,8 +70,8 @@ const ProfileHeader = () => {
     };
 
     return(
-        <section className="personal-header-section">
-            <div className="header-personal">
+        <header className="personal-header-section">
+            <section className="header-personal">
                 <div className="profile-personal-detail">
                     <h1>
                         {profilePageUser.username}
@@ -86,8 +88,8 @@ const ProfileHeader = () => {
                         {`${isFollowing ? "Unfollow" : "Follow"}`}
                     </button>
                 </div>
-            </div>
-        </section>
+            </section>
+        </header>
     )
 }
 

@@ -21,7 +21,8 @@ const Trending = () => {
     const [updatedComments, setUpdatedComments] = useState<boolean>(false)
 
     const fetchTrending = async () => {
-        const {data} = await axios.get("http://localhost:5000/api/posts/all/trending");
+        // const {data} = await axios.get("http://localhost:5000/api/posts/all/trending");
+        const {data} = await axios.get("https://agora-backend-ktc.herokuapp.com/api/posts/all/trending");
 
         return setTrendingPosts(data);
     };
@@ -32,7 +33,7 @@ const Trending = () => {
     }, [updatedComments]);
 
     return (
-        <div className="trending">
+        <aside className="trending">
             <h2 className="trending-title">Trending</h2>
             <section className="trending-container">
                 {trendingPosts.map((post: any) => {
@@ -40,7 +41,7 @@ const Trending = () => {
                     description={post.content} key={post._id} id={post._id} comments={post.comments} setUpdatedComments={setUpdatedComments}/>
                 })}
             </section>
-        </div>
+        </aside>
     )
 }
 
